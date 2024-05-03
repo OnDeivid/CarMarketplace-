@@ -1,0 +1,35 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.content {
+    background-color: #ffffff;
+    height: 93vh;
+    overflow-y: auto;
+}
+
+.content h1 {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.menu-filter {
+    background-color: rgb(5, 125, 69);
+    border-radius: 50px;
+    width: 60px;
+    font-size: 2rem;
+    color: rgb(232, 232, 232);
+    position: absolute;
+    bottom: 70px;
+    right: 40px;
+    text-align: center;
+    transition:0.3s;
+}
+
+.menu-filter:hover {
+    width: 70px;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}

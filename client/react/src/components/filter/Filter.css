@@ -3,44 +3,113 @@
     justify-content: center;
     align-items: center;
     height: 270px;
-    background-color: rgb(128, 127, 127);
+    background-color: rgb(206, 202, 202);
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-    /* background-color: rgb(139, 97, 97); */
 }
+
 body {
     overflow: hidden;
 }
 
-.filter-optionsHidden {
+.filter-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(221, 221, 221);
+    height: 100%;
+    width: 100%;
+    animation: HideFilter 2s;
+}
+
+@keyframes ShowFilter {
+    0% {
+        margin-top: -550px;
+    }
+
+    100% {
+        margin-top: 0px;
+    }
+}
+
+@keyframes HideFilter {
+    0% {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(252, 252, 252);
+        height: 50%;
+        width: 97%;
+        border-radius: 60px;
+        margin-top: 0px;
+        animation: ShowFilter 1.5s;
+    }
+
+    50% {
+        margin-top: -1050px;
+    }
+    70% {
+        margin-top: 0px;
+    }
+    
+    100% {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(221, 221, 221);
+        height: 100%;
+        width: 100%;
+        animation: HideFilter 2s;
+    }
+}
+
+.filter-holder-fixed {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 252, 252);
+    height: 50%;
+    width: 97%;
+    border-radius: 60px;
+    margin-top: 0px;
+    animation: ShowFilter 1.5s;
+}
+
+
+.filter-options {
+    position: relative;
     z-index: 1;
     border-radius: 10px;
-    background-color: rgb(207, 133, 6);
+    background-color: rgb(39, 39, 39);
     min-width: 450px;
     min-height: 200px;
     margin-top: 20px;
     height: fit-content;
     max-width: 800px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
 
-.filter-optionsActive {
-    z-index: 1;
-    border-radius: 10px;
-    background-color: rgb(207, 133, 6);
-    min-width: 450px;
-    min-height: 200px;
-    margin-top: 20px;
-    height: fit-content;
-    max-width: 800px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
 
+}
 
 @media (max-width: 668px) {
+
+    .filter-holder-fixed {
+        margin-top: -70px;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        height: 30%;
+        width: 97%;
+        border-radius: 10px;
+
+    }
+
     .filter-options {
+        margin-top: -20px;
         min-width: 330px;
         min-height: fit-content;
-
     }
 }

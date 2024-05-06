@@ -1,5 +1,5 @@
 .navbar {
-z-index: 2;
+    z-index: 2;
     position: fixed;
     width: 100%;
     padding: 3.5px;
@@ -14,6 +14,14 @@ z-index: 2;
     margin-left: 1rem;
     font-size: 2rem;
     background: none;
+    color: orange;
+    transition: 0.3s;
+
+}
+
+.menu-bars:hover {
+    color: white;
+    transition: 0.3s;
 }
 
 .nav-menu {
@@ -53,5 +61,3 @@ z-index: 2;
 span {
     margin-left: 16px;
 }
-
-

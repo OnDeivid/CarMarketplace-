@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import * as FaIcons from "react-icons/fa";
-import { GrSearchAdvanced } from "react-icons/gr";
 import { MdHideSource } from "react-icons/md";
+import { CiHeart } from "react-icons/ci";
 
 import { SideBarData } from '../../CONST';
 
@@ -18,6 +18,10 @@ export default function Header() {
             <div className='navbar'>
                 <Link to='#' className='menu-bars'>
                     {sideBar ? <MdHideSource onClick={showSideBar} /> : <FaIcons.FaBars onClick={showSideBar} />}
+                </Link>
+
+                <Link to='#' className='menu-loved'>
+                    <CiHeart />
                 </Link>
 
             </div>

@@ -16,8 +16,22 @@
     background: none;
     color: orange;
     transition: 0.3s;
-
 }
+
+.menu-loved {
+    font-size: 2rem;
+    color: orange;
+    transition: 0.3s;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+}
+
+.menu-loved:hover {
+    background-color: red;
+    color: white;
+}
+
 
 .menu-bars:hover {
     color: white;

@@ -14,10 +14,14 @@ export const SideBarData = [
         icon: IoIosLogIn,
     },
     {
+        title: 'Register',
+        path: 'register',
+        icon: IoIosLogIn,
+    },
+    {
         title: 'Profile',
         path: 'profile',
         icon: CgProfile,
     },
-
 
 ]

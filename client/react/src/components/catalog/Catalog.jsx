@@ -50,7 +50,6 @@ const CatalogPage = () => {
                         <p>Mileage:{item.price}</p>
                     </div>
                 ))}
-
             </div>
         </div>
     );

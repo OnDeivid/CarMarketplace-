@@ -27,7 +27,29 @@
     right: 20px;
 }
 
+.menu-loved-active {
+    font-size: 2rem;
+    transition: 0.3s;
+    position: absolute;
+    background-color: red;
+    color: white;
+    top: 5px;
+    right: 20px;
+}
+
 .menu-loved:hover {
+    background-color: red;
+    color: white;
+}
+
+.menu-loved-active:hover {
+    background-color: rgb(0, 0, 0);
+    color: orange;
+
+}
+
+
+.menu-loved-active {
     background-color: red;
     color: white;
 }
@@ -66,6 +88,10 @@
     font-size: 15px;
     height: 60px;
     color: #f5f5f5;
+}
+
+.Dnone {
+    display: none;
 }
 
 .nav-text:hover {

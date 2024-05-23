@@ -1,0 +1,98 @@
+.likedPosts {
+    width: 90%;
+    height: 100%;
+    border-radius: 60px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 2.5vw;
+    background-color: rgb(45, 45, 45);
+}
+
+.likedHolder {
+    margin-top: 20px;
+    height: 300px;
+}
+
+.likedHolder:hover {
+    background-color: rgb(27, 27, 27);
+    transition: background-color 0.5s;
+
+}
+
+h2 {
+    margin-top: -10px;
+    font-size: 20px;
+}
+
+.likedCarInfo {
+    margin: auto;
+    width: 300px;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.line {
+    margin-top: -10px;
+    background-color: white;
+    width: 100%;
+    margin-left: 5px;
+    height: 1px;
+}
+
+/*------------>! Mobile !<------------- */
+@media (max-width: 668px) {
+    .likedHolder h2 {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .likedHolder p {
+        font-size: 10px;
+    }
+
+    .likedHolder img {
+        min-width: 170px;
+        width: 172px;
+        margin-left: 0px;
+    }
+
+
+    .likedHolder {
+        float: left;
+        background-color: red;
+        width: 75%;
+        height: 300px;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .likedPosts {
+        width: 300px;
+        height: 300px;
+        justify-content: space-around;
+        border-radius: 60px;
+        background-color: rgb(34, 34, 34);
+    }
+
+    h2 {
+        margin-top: -20px;
+    }
+
+    .likedCarInfo {
+        display: block;
+        text-align: start;
+        width: 200px;
+    }
+
+    .line {
+        margin-top: -10px;
+        background-color: white;
+        width: 100%;
+        margin-left: 5px;
+        height: 1px;
+    }
+
+
+}

@@ -4,9 +4,9 @@ import { authContext } from '../../context/authContext';
 import './Filter.css';
 
 export default function Filter() {
-    const { showFilter, onShowFilter } = useContext(authContext);
+    const { showFilter} = useContext(authContext);
     return (
-        <div className='container'>
+        <div className='filter-container'>
             <div className={!showFilter ? 'filter-holder' : 'filter-holder-fixed'}>
                 <div className='filter-options'>
                     <ul>

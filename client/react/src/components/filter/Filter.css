@@ -1,8 +1,8 @@
-.container {
+.filter-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 270px;
+    height: 300px;
     background-color: rgb(206, 202, 202);
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -74,12 +74,13 @@ body {
     border-radius: 60px;
     margin-top: 0px;
     animation: ShowFilter 1.5s;
+    z-index: 1;
+
 }
 
 
 .filter-options {
     position: relative;
-    z-index: 1;
     border-radius: 10px;
     background-color: rgb(39, 39, 39);
     min-width: 450px;

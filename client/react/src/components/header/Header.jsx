@@ -6,11 +6,15 @@ import { MdHideSource } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 
 import { SideBarData } from '../../CONST';
+import { authContext } from '../../context/authContext';
 
 import './Header.css'
 
 export default function Header() {
+
     const [sideBar, setSideBar] = useState(false)
+    const { showLiked, onShowLiked, activeUser } = useContext(authContext)
+
     const showSideBar = () => setSideBar(prev => !prev)
 
     return (
@@ -20,7 +24,7 @@ export default function Header() {
                     {sideBar ? <MdHideSource onClick={showSideBar} /> : <FaIcons.FaBars onClick={showSideBar} />}
                 </Link>
 
-                <Link to='#' className='menu-loved'>
+                <Link to='#' onClick={onShowLiked} className={showLiked ? 'menu-loved-active' : 'menu-loved'}>
                     <CiHeart />
                 </Link>
 
@@ -29,16 +33,20 @@ export default function Header() {
                 <ul className={sideBar ? 'nav-menu active' : 'nav-menu'}>
                     {SideBarData.map((x, i) => {
                         return (
-                            <li key={i} className={x.title}>
-                                <Link to={x.path} className='nav-text'>
-                                    <x.icon />
-                                    <span>{x.title}</span>
-                                </Link>
-                            </li>
+
+                            activeUser == x.accessibilityType || x.accessibilityType == 'all' || activeUser.user == x.accessibilityType ?
+                                < li key={i} className={x.title} >
+                                    <Link to={x.path} className='nav-text'>
+                                        <x.icon />
+                                        <span>{x.title}</span>
+                                    </Link>
+                                </li>
+                                :
+                                null
                         )
                     })}
                 </ul>
-            </nav>
+            </nav >
         </>
     )
 }

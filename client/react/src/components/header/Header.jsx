@@ -13,7 +13,7 @@ import './Header.css'
 export default function Header() {
 
     const [sideBar, setSideBar] = useState(false)
-    const { showLiked, onShowLiked, activeUser } = useContext(authContext)
+    const { showLiked, onShowLiked, auth } = useContext(authContext)
 
     const showSideBar = () => setSideBar(prev => !prev)
 
@@ -31,20 +31,18 @@ export default function Header() {
             </div>
             <nav>
                 <ul className={sideBar ? 'nav-menu active' : 'nav-menu'}>
-                    {SideBarData.map((x, i) => {
-                        return (
+                    {SideBarData.filter(item =>
 
-                            activeUser == x.accessibilityType || x.accessibilityType == 'all' || activeUser.user == x.accessibilityType ?
-                                < li key={i} className={x.title} >
-                                    <Link to={x.path} className='nav-text'>
-                                        <x.icon />
-                                        <span>{x.title}</span>
-                                    </Link>
-                                </li>
-                                :
-                                null
-                        )
-                    })}
+                        (!auth && (item.accessibilityType == 'guest' || item.accessibilityType == 'all')) || (auth && (item.accessibilityType == 'user' || item.accessibilityType == 'all')))
+
+                        .map((item, index) => (
+                            <li key={index} className={item.title}>
+                                <Link to={item.path} className='nav-text'>
+                                    <item.icon />
+                                    <span>{item.title}</span>
+                                </Link>
+                            </li>
+                        ))}
                 </ul>
             </nav >
         </>

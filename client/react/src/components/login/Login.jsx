@@ -9,14 +9,14 @@ import './Login.css'
 export default function Login() {
 
     const { formValue, onChangeValue } = useAuthForm({ email: '', password: '' })
-    const { setActiveUser } = useContext(authContext)
+    const { setAuth } = useContext(authContext)
 
     async function onLogin(e) {
         e.preventDefault()
 
         try {
             const data = await POST('login', formValue)
-            setActiveUser(data)
+            setAuth(data)
 
         } catch (err) {
             console.log(err)

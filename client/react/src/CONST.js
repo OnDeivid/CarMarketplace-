@@ -2,6 +2,8 @@ import { IoHomeOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { IoIosCreate } from "react-icons/io";
 import { IoIosLogIn } from "react-icons/io";
+import { RiLogoutBoxLine } from "react-icons/ri";
+
 
 export const SideBarData = [
     {
@@ -36,6 +38,13 @@ export const SideBarData = [
         title: 'Create',
         path: 'create',
         icon: IoIosCreate,
+        accessibilityType: 'user'
+
+    },
+    {
+        title: 'Logout',
+        path: 'logout',
+        icon: RiLogoutBoxLine,
         accessibilityType: 'user'
         
     }

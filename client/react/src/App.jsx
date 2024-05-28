@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
 import { useState } from 'react';
 
 import Header from './components/header/Header';
@@ -9,23 +9,29 @@ import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Profile from './components/profile/Profile';
 import LikedCars from './components/lovedCars/LikedCars';
+import useSessionStorage from './hooks/useSessionStorage'
+import Logout from './components/logout/Logout';
 
 function App() {
   const [showFilter, setShowFilter] = useState(false);
   const [showLiked, setShowLiked] = useState(false);
-  const [activeUser, setActiveUser] = useState('guest')
-
   const onShowFilter = () => setShowFilter(!showFilter);
   const onShowLiked = () => setShowLiked(!showLiked);
+  const { state: auth, setSessionStorageState: setAuth } = useSessionStorage('auth', '');
 
   const ProvidedData = {
-    activeUser,
-    setActiveUser,
+    auth, setAuth,
     showFilter,
     onShowFilter,
     showLiked,
     onShowLiked
   };
+
+  function onLogout() {
+    setAuth('')
+    sessionStorage.removeItem('auth')
+  }
+
 
   return (
     <div style={{ marginTop: '50px', height: '100vh', width: '100vw', backgroundColor: 'rgb(206, 202, 202)' }}>
@@ -33,10 +39,11 @@ function App() {
         <Router>
           <Header />
           <Routes>
-            <Route path='profile' Component={Profile} /> :
-            <Route path='login' Component={Login} />
-            <Route path='register' Component={Register} />
-            <Route path='/' Component={Home} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
+            <Route path='/' element={<Home />} />
+            <Route path='logout' element={<Logout onLogout={onLogout} />} />
           </Routes>
           {showLiked && <LikedCars />}
         </Router>

@@ -5,6 +5,7 @@ function useSessionStorage(key, initialValue) {
         const persistedStateSerialized = sessionStorage.getItem(key)
         if (persistedStateSerialized) {
             const persistedState = JSON.parse(persistedStateSerialized)
+
             return persistedState
         }
         return initialValue
@@ -18,3 +19,4 @@ function useSessionStorage(key, initialValue) {
     return { state, setSessionStorageState }
 
 }
+export default useSessionStorage;

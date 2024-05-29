@@ -18,7 +18,7 @@ body {
     background-color: rgb(221, 221, 221);
     height: 100%;
     width: 100%;
-    animation: HideFilter 2s;
+    animation: HideFilter 0.3s;
 }
 
 @keyframes ShowFilter {
@@ -48,10 +48,11 @@ body {
     50% {
         margin-top: -1050px;
     }
+
     70% {
         margin-top: 0px;
     }
-    
+
     100% {
         display: flex;
         justify-content: center;
@@ -68,15 +69,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(252, 252, 252);
-    height: 50%;
+    
+    /* background-color: rgb(252, 252, 252); */
+       background-color: rgb(122, 108, 108);
+
+
+    height: 47%;
+    /* height: 50%; */
+
     width: 97%;
-    border-radius: 60px;
+    border-radius: 10px;
     margin-top: 0px;
     animation: ShowFilter 1.5s;
     z-index: 1;
 
 }
+
+.labelOption {
+    justify-content: space-around;
+}
+
 
 
 .filter-options {
@@ -89,9 +101,66 @@ body {
     height: fit-content;
     max-width: 800px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 
+
+/* filter options */
+.filterInput {
+    width: 100px;
+    font-size: 13px;
+    height: 20px;
+    text-align: center;
 
 }
+
+.filterInput:focus {
+    outline: inset 2px rgb(255, 255, 255);
+}
+
+.filter-form {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.filter-item {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-item label {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.filter-item-btn {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    grid-column: span 3;
+}
+
+.filter-item-btn button {
+    margin-top: -10px;
+    font-size: 11px;
+    background-color: rgb(130, 135, 135);
+    transition: 0.5s;
+    border: none;
+
+}
+
+.filter-item-btn button:hover {
+    font-size: 11px;
+    background-color: rgb(164, 164, 164);
+    transition: 0.5s;
+    border: none; 
+    outline: none;
+}
+
+/* filter options */
+
 
 @media (max-width: 668px) {
 

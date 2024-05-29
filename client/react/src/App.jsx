@@ -11,6 +11,8 @@ import Profile from './components/profile/Profile';
 import LikedCars from './components/lovedCars/LikedCars';
 import useSessionStorage from './hooks/useSessionStorage'
 import Logout from './components/logout/Logout';
+import Create from './components/create/Create';
+
 
 function App() {
   const [showFilter, setShowFilter] = useState(false);
@@ -43,6 +45,7 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />} />
             <Route path='/' element={<Home />} />
+            <Route path='create' element={<Create />} />
             <Route path='logout' element={<Logout onLogout={onLogout} />} />
           </Routes>
           {showLiked && <LikedCars />}

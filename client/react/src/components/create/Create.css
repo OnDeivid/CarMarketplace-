@@ -1,0 +1,82 @@
+.createInput {
+    width: 150px;
+    font-size: 13px;
+    height: 20px;
+    text-align: center;
+    justify-content: center;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.create-item-desc label {
+    margin-top: -30px;
+    margin-left: auto;
+}
+
+.create-item-desc {
+    margin-top: 15px;
+    display: flex;
+}
+
+.createInput-desc {
+    position: fixed;
+    height: 140px;
+    width: 400px;
+}
+
+.holder {
+    justify-content: center;
+    background-color: rgb(46, 46, 46);
+    width: 700px;
+
+    margin: auto;
+    border-radius: 10px;
+    height: 380px;
+}
+
+.createInput:focus {
+    outline: inset 2px rgb(255, 255, 255);
+}
+
+.create-form {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.create-item {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-item label {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.create-item-btn {
+    display: flex;
+    justify-content: end;
+    grid-column: span 3;
+}
+
+.create-item-btn button {
+    font-size: 14px;
+    background-color: rgb(7, 127, 59);
+    transition: 0.5s;
+    border: none;
+
+}
+
+.create-item-btn button:hover {
+    font-size: 14px;
+    background-color: rgb(34, 187, 65);
+    transition: 0.5s;
+    border: none;
+    outline: none;
+}

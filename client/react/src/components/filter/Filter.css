@@ -76,6 +76,8 @@ body {
 
     height: 47%;
     /* height: 50%; */
+    max-height: 299px;
+    min-height: 220px;
 
     width: 97%;
     border-radius: 10px;

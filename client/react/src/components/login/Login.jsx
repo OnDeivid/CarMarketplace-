@@ -1,6 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import { POST } from '../../requester';
 import useAuthForm from '../../hooks/formValues';
-
 import { authContext } from '../../context/authContext';
 import { useContext } from 'react';
 
@@ -10,6 +10,7 @@ export default function Login() {
 
     const { formValue, onChangeValue } = useAuthForm({ email: '', password: '' })
     const { setAuth } = useContext(authContext)
+    const navigate = useNavigate()
 
     async function onLogin(e) {
         e.preventDefault()
@@ -17,6 +18,7 @@ export default function Login() {
         try {
             const data = await POST('login', formValue)
             setAuth(data)
+            navigate('/')
 
         } catch (err) {
             console.log(err)

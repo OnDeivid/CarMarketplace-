@@ -16,7 +16,7 @@ function useSessionStorage(key, initialValue) {
         sessionStorage.setItem(key, JSON.stringify(value))
     }
 
-    return { state, setSessionStorageState }
+    return [state, setSessionStorageState]
 
 }
 export default useSessionStorage;

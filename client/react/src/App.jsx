@@ -12,14 +12,14 @@ import LikedCars from './components/lovedCars/LikedCars';
 import useSessionStorage from './hooks/useSessionStorage'
 import Logout from './components/logout/Logout';
 import Create from './components/create/Create';
-
-
+import PrivateRoute from './privateRoute/PrivateRouter';
+import PublicRoute from './publicRoute/PublicRoute';
 function App() {
   const [showFilter, setShowFilter] = useState(false);
   const [showLiked, setShowLiked] = useState(false);
   const onShowFilter = () => setShowFilter(!showFilter);
   const onShowLiked = () => setShowLiked(!showLiked);
-  const { state: auth, setSessionStorageState: setAuth } = useSessionStorage('auth', '');
+  const [auth, setAuth] = useSessionStorage('auth', '');
 
   const ProvidedData = {
     auth, setAuth,
@@ -41,12 +41,12 @@ function App() {
         <Router>
           <Header />
           <Routes>
-            <Route path='profile' element={<Profile />} />
-            <Route path='login' element={<Login />} />
-            <Route path='register' element={<Register />} />
-            <Route path='/' element={<Home />} />
-            <Route path='create' element={<Create />} />
+            <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
+            <Route path='create' element={<PrivateRoute><Create /></PrivateRoute>} />
             <Route path='logout' element={<Logout onLogout={onLogout} />} />
+            <Route path='login' element={<PublicRoute><Login /></PublicRoute>} />
+            <Route path='register' element={<PublicRoute><Register /></PublicRoute>} />
+            <Route path='/' element={<Home />} />
           </Routes>
           {showLiked && <LikedCars />}
         </Router>

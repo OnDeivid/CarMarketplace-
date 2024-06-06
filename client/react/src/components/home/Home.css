@@ -16,6 +16,7 @@
 }
 
 .menu-filter {
+    z-index: 4;
     background-color: rgb(5, 125, 69);
     border-radius: 50px;
     width: 60px;

@@ -1,21 +1,23 @@
 import { POST } from '../../requester'
 import useAuthForm from '../../hooks/formValues'
+import { useNavigate } from 'react-router-dom'
 
 import './Register.css'
 
 export default function Register() {
-
+    const navigate = useNavigate()
     const { formValue, onChangeValue } = useAuthForm({ email: '', username: '', number: '', password: '', rePassword: '' })
 
     async function onRegister(e) {
         e.preventDefault()
-
         try {
             await POST('register', formValue)
+            navigate('/login')
+
         } catch (err) {
             console.log(err)
         }
-        
+
     }
     return (
         <div className='containerregister'>

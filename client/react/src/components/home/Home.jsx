@@ -14,21 +14,23 @@ function Home() {
         fetch('http://localhost:3000')
             .then(response => {
                 if (!response.ok) { throw new Error('Network response was not ok'); }
-               })
+            })
             .catch(error => {
                 console.error('Fetch error:', error);
             });
 
     }, [])
-
     return (
         <div className="wrapper">
             <div className='content'>
                 <Filter />
                 <div className="catalog-section">
                     <div style={{ height: '3px', backgroundColor: 'gray' }}></div>
-                    <div className='menu-filter' onClick={onShowFilter}><GrSearchAdvanced />
-                    </div>
+
+                    {/*------------------ filter fixed---------------------*/}
+                    <div className='menu-filter' onClick={onShowFilter}><GrSearchAdvanced /></div>
+                    {/*------------------ filter fixed---------------------*/}
+
                     {!posts ? <div style={{ color: 'black' }}>No Posts Yet</div> : <CatalogPage />}
 
                 </div>

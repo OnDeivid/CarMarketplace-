@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import * as FaIcons from "react-icons/fa";
@@ -14,7 +14,6 @@ export default function Header() {
 
     const [sideBar, setSideBar] = useState(false)
     const { showLiked, onShowLiked, auth } = useContext(authContext)
-
     const showSideBar = () => setSideBar(prev => !prev)
 
     return (

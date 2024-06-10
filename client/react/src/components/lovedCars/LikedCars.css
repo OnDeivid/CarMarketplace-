@@ -2,11 +2,13 @@
     z-index: 3;
     position: absolute;
     top: 75px;
-    right: 150px;
+    right: 14%;
     display: flex;
     justify-content: center;
+    color: white;
     align-items: center;
     height: 270px;
+    max-height: 300px;
     background-color: rgb(0, 0, 0);
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -27,12 +29,18 @@ body {
 }
 
 .liked-holder-fixed {
+    top: 35px;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50%;
-    width: 50%;
+    max-height: 300px;
+    min-height: 400px;
+    right:-90px;
+    max-width: 900px;
+    min-width: 400px;
+
     border-radius: 60px;
     margin-top: 0px;
     animation: Showliked 1.5s;

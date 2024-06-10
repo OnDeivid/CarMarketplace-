@@ -97,6 +97,7 @@ body {
     position: relative;
     border-radius: 10px;
     background-color: rgb(39, 39, 39);
+    color: white;
     min-width: 450px;
     min-height: 200px;
     margin-top: 20px;

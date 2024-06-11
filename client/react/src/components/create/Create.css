@@ -23,7 +23,7 @@ h1 {
 
 .createInput-desc {
     position: fixed;
-    height: 140px;
+    height: 120px;
     width: 400px;
 }
 
@@ -31,12 +31,20 @@ h1 {
     justify-content: center;
     background-color: rgb(46, 46, 46);
     width: 700px;
-
+    position: relative;
     margin: auto;
     border-radius: 10px;
-    height: 380px;
+    height: 400px;
 }
+.currency{
+    margin: 3px;
+    width: 55px;
+    float: right;
+}
+.currency:focus{
+    outline: inset 2px rgb(255, 255, 255);
 
+}
 .createInput:focus {
     outline: inset 2px rgb(255, 255, 255);
 }
@@ -66,6 +74,9 @@ h1 {
 }
 
 .create-item-btn button {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
     font-size: 14px;
     background-color: rgb(7, 127, 59);
     transition: 0.5s;
@@ -80,3 +91,4 @@ h1 {
     border: none;
     outline: none;
 }
+

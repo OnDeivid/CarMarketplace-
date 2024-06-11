@@ -6,18 +6,17 @@ import { GrSearchAdvanced } from "react-icons/gr";
 import CatalogPage from '../catalog/Catalog';
 
 import './Home.css';
+import { GET } from '../../requester';
 
 function Home() {
     const { onShowFilter } = useContext(authContext)
-    const [posts, setPosts] = useState('')
+    const [carsData, setCarsData] = useState('');
     useEffect(() => {
-        fetch('http://localhost:3000')
-            .then(response => {
-                if (!response.ok) { throw new Error('Network response was not ok'); }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-            });
+        try {
+            GET('home').then(response => setCarsData(response))
+        } catch (err) {
+            console.log(err)
+        }
 
     }, [])
     return (
@@ -31,7 +30,7 @@ function Home() {
                     <div className='menu-filter' onClick={onShowFilter}><GrSearchAdvanced /></div>
                     {/*------------------ filter fixed---------------------*/}
 
-                    {!posts ? <div style={{ color: 'black' }}>No Posts Yet</div> : <CatalogPage />}
+                    {!carsData ? <div style={{ color: 'black' }}>No Posts Yet</div> : <CatalogPage carsData={carsData} />}
 
                 </div>
             </div>

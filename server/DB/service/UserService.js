@@ -5,11 +5,12 @@ const jwt = require('jsonwebtoken');
 
 exports.register = async (data) => await UserModel.create(data)
 
+
+
 exports.login = async (data) => {
     const { email, password } = data
 
     const userData = await UserModel.findOne({ email: email })
-
     if (!userData) {
         throw new Error('email or password is not correct!')
     }

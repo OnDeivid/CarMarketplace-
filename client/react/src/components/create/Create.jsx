@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Create.css';
-import useAuthForm from '../../hooks/formValues';
+import useForm from '../../hooks/useForm';
 import { POST } from '../../requester';
 
 export default function Create() {
-    const { formValue, onChangeValue } = useAuthForm({
+    const { formValue, onChangeValue } = useForm({
         year: '',
         mileage: '',
         fuel: 'Petrol',
@@ -20,7 +20,6 @@ export default function Create() {
         e.preventDefault()
         try {
             const data = await POST('create', formValue)
-            console.log(data)
         } catch (err) {
             console.log(err)
         }
@@ -54,7 +53,7 @@ export default function Create() {
 
                     <div className="create-item">   {/*model*/}
                         <label htmlFor="model">Model:</label>
-                        <input className='createInput' type="text" id="model" name="model" value={formValue.model} onChange={onChangeValue} placeholder='Audi a5 b7ø' />
+                        <input className='createInput' type="text" id="model" name="model" value={formValue.model} onChange={onChangeValue} placeholder='Audi a5 b7' />
                     </div>
 
                     <div className="create-item">   {/*brand*/}

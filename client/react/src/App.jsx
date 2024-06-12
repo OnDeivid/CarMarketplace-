@@ -5,15 +5,17 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 
 import { authContext } from './context/authContext';
+
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Profile from './components/profile/Profile';
-import LikedCars from './components/lovedCars/LikedCars';
+import LikedCars from './components/likedCars/LikedCars';
 import useSessionStorage from './hooks/useSessionStorage'
 import Logout from './components/logout/Logout';
 import Create from './components/create/Create';
 import PrivateRoute from './privateRoute/PrivateRouter';
 import PublicRoute from './publicRoute/PublicRoute';
+
 function App() {
   const [showFilter, setShowFilter] = useState(false);
   const [showLiked, setShowLiked] = useState(false);

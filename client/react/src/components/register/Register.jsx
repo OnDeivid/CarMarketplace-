@@ -1,21 +1,31 @@
 import { POST } from '../../requester'
-import useAuthForm from '../../hooks/formValues'
+import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom'
 
 import './Register.css'
+import useFormValidation from '../../hooks/useFormValidation'
+import { useState } from 'react'
 
 export default function Register() {
     const navigate = useNavigate()
-    const { formValue, onChangeValue } = useAuthForm({ email: '', username: '', number: '', password: '', rePassword: '' })
+    const { formValue, onChangeValue } = useForm({ email: '', username: '', number: '', password: '', rePassword: '' })
+    const [formError, setFormError] = useState('')
+    const [requestError, setRequestError] = useState('')
 
     async function onRegister(e) {
         e.preventDefault()
+        
+        const validation = useFormValidation(formValue)
+        setFormError(validation)
+
+        if (validation.flag) { return }
+
         try {
             await POST('register', formValue)
             navigate('/login')
 
         } catch (err) {
-            console.log(err)
+            setRequestError(err.message)
         }
 
     }
@@ -24,11 +34,53 @@ export default function Register() {
             <div className="register-container">
                 <h2>Register</h2>
                 <form onSubmit={onRegister} method="post">
-                    <input onChange={onChangeValue} type="username" value={formValue.email} name="email" placeholder="Email" required />
-                    <input onChange={onChangeValue} type="username" value={formValue.username} name="username" placeholder="Username" required />
-                    <input onChange={onChangeValue} type="number" value={formValue.number} name="number" placeholder="Phone Number" required />
-                    <input onChange={onChangeValue} type="password" value={formValue.password} name="password" placeholder="Password" required />
-                    <input onChange={onChangeValue} type="password" value={formValue.rePassword} name="rePassword" placeholder="rePassword" required />
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{requestError}</p>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="username"
+                        value={formValue.email}
+                        name="email"
+                        placeholder="Email"
+                        required />
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.email}</p>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="username"
+                        value={formValue.username}
+                        name="username"
+                        placeholder="Username"
+                        required />
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.username}</p>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="number"
+                        value={formValue.number}
+                        name="number"
+                        placeholder="Phone Number"
+                        required />
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.number}</p>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="password"
+                        value={formValue.password}
+                        name="password"
+                        placeholder="Password"
+                        required />
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.password}</p>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="password"
+                        value={formValue.rePassword}
+                        name="rePassword"
+                        placeholder="rePassword"
+                        required />
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.rePassword}</p>
+
 
                     {/* <select>
                         <option>bussines</option>

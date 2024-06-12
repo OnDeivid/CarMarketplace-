@@ -19,13 +19,14 @@ async function requester(method, url, data) {
         clearTimeout(timeOutId)
 
         if (!response.ok) {
-            throw new Error(response.status + '---' + response.statusText)
+            const errorResponse = await response.json();
+            throw new Error(errorResponse.error);
         }
 
         return response.json()
 
     } catch (err) {
-        console.log(err)
+        throw new Error(err.message)
     }
 }
 

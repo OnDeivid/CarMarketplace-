@@ -14,7 +14,7 @@ userSchema.path('email').validate(async function (email) {
     const isEmailExist = await mongoose.model('User').findOne({ email: email })
 
     if (isEmailExist) {
-        throw new Error('email already exists')
+        throw new Error('Email already exist')
     }
 })
 

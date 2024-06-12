@@ -1,27 +1,37 @@
 import { useNavigate } from 'react-router-dom';
 import { POST } from '../../requester';
-import useAuthForm from '../../hooks/formValues';
+import useForm from '../../hooks/useForm';
 import { authContext } from '../../context/authContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import useFormValidation from '../../hooks/useFormValidation';
 
 import './Login.css'
 
 export default function Login() {
 
-    const { formValue, onChangeValue } = useAuthForm({ email: '', password: '' })
+    const { formValue, onChangeValue } = useForm({ email: '', password: '' })
     const { setAuth } = useContext(authContext)
+    const [formError, setFormError] = useState('')
+    const [requestError, setRequestError] = useState('')
+
     const navigate = useNavigate()
 
     async function onLogin(e) {
         e.preventDefault()
 
+        const validation = useFormValidation(formValue)
+        setFormError(validation.error)
+
+        if (validation.flag) { return }
+
         try {
-            const data = await POST('login', formValue)
-            setAuth(data)
+            const response = await POST('login', formValue)
+
+            setAuth(response)
             navigate('/')
 
         } catch (err) {
-            console.log(err)
+            setRequestError('login failed check your credentials.')
         }
     }
     return (
@@ -29,11 +39,31 @@ export default function Login() {
             <div className="login-container">
                 <h2>Login</h2>
                 <form onSubmit={onLogin} method="post">
-                    <input onChange={onChangeValue} type="text" value={formValue.email} name="email" placeholder="Email" required />
-                    <input onChange={onChangeValue} type="password" value={formValue.password} name="password" placeholder="Password" required />
+                    <div className="error-message" style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-15px' }}>{requestError}</div>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="text"
+                        value={formValue.email}
+                        name="email"
+                        placeholder="Email"
+                        required />
+
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }} className="error-message">{formError?.email}</p>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="password"
+                        value={formValue.password}
+                        name="password"
+                        placeholder="Password"
+                        required />
+
+                    <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }} className="error-message">{formError?.password}</p>
+
                     <button type="submit">Login</button>
                 </form>
-                <h5><a>REGISTER HERE</a></h5>
+                <h5><a href="/register">REGISTER HERE</a></h5>
             </div>
         </div>
     );

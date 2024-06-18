@@ -3,7 +3,6 @@ export default function useFormValidation(initialValue) {
     let flag = false
 
     const validateField = (fieldName, errorMessage) => {
-        console.log(flag)
         if (initialValue[fieldName]?.trim().length < 2) {
             error[fieldName] = errorMessage
             flag = true

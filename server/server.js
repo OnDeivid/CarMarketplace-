@@ -1,9 +1,11 @@
 const express = require('express')
 const cors = require('cors')
-const connectDB = require('./DB/connectDB')
+const rateLimit = require('express-rate-limit');
+
 const { register, login } = require('./DB/service/UserService')
 const { create, getAll } = require('./DB/service/CarService')
-const { object } = require('webidl-conversions')
+
+const connectDB = require('./DB/connectDB')
 
 const app = express()
 
@@ -11,6 +13,19 @@ const corsOption = {
     origin: 'http://localhost:5173',
     optionsSuccessStatus: 200
 }
+
+//login limit requests
+const loginLimitRequest = rateLimit({
+    windowMs: 15 * 60 * 100,
+    max: 30,
+    message: { error: 'Too many login, attempts please try again later.' },
+})
+//register limit requests
+const registerLimitRequest = rateLimit({
+    windowMs: 15 * 60 * 100,
+    max: 30,
+    message: { error: 'Too many register, attempts please try again later.' },
+})
 
 //connect to the DB
 connectDB()
@@ -29,10 +44,12 @@ app.get('/home', async (req, res) => {
 
 })
 
-app.post('/login', async (req, res) => {
+app.post('/login', loginLimitRequest, async (req, res) => {
     try {
-        const data = await login(req.body)
-        res.status(201).send({ message: 'login successful', data, user: 'user' })
+        const userData = req.body
+
+        const token = await login(userData)
+        res.status(201).send({ message: 'login successful', data: token, user: 'user' })
     } catch (error) {
         res.status(401).send({ error: error.message });
     }
@@ -40,21 +57,28 @@ app.post('/login', async (req, res) => {
 
 app.post('/create', async (req, res) => {
     try {
-        await create(req.body)
+        const carData = req.body
+
+        await create(carData)
         res.status(201).send({ create: 'Car created successfully' });
+
 
     } catch (error) {
         res.status(400).send({ error: error })
     }
 })
 
-app.post('/register', async (req, res) => {
+app.post('/register', registerLimitRequest, async (req, res) => {
     try {
-        await register(req.body)
+        const userData = req.body
+
+        await register(userData)
+        console.log('da have new acc')
+
         res.status(201).send({ message: 'User registered successfully' });
     } catch (error) {
-        const validationErrorMessage = error.errors.email.properties.message
-        res.status(400).send({ error: validationErrorMessage });
+        const errors = Object.values(error.errors).map(err => err.message);
+        return res.status(400).json({ error: errors });
 
     }
 })

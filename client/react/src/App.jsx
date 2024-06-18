@@ -36,18 +36,17 @@ function App() {
     sessionStorage.removeItem('auth')
   }
 
-
   return (
     <div style={{ marginTop: '50px', height: '100vh', width: '100vw', backgroundColor: 'rgb(206, 202, 202)' }}>
       <authContext.Provider value={ProvidedData}>
         <Router>
           <Header />
           <Routes>
-            <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
-            <Route path='create' element={<PrivateRoute><Create /></PrivateRoute>} />
-            <Route path='logout' element={<Logout onLogout={onLogout} />} />
-            <Route path='login' element={<PublicRoute><Login /></PublicRoute>} />
-            <Route path='register' element={<PublicRoute><Register /></PublicRoute>} />
+            <Route path='/profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
+            <Route path='/create' element={<PrivateRoute><Create /></PrivateRoute>} />
+            <Route path='/logout' element={<Logout onLogout={onLogout} />} />
+            <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
+            <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
             <Route path='/' element={<Home />} />
           </Routes>
           {showLiked && <LikedCars />}

@@ -28,7 +28,6 @@ function Home() {
 
                     {/*------------------ filter fixed---------------------*/}
                     <div className='menu-filter' onClick={onShowFilter}><GrSearchAdvanced /></div>
-                    {/*------------------ filter fixed---------------------*/}
 
                     {!carsData ? <div style={{ color: 'black' }}>No Posts Yet</div> : <CatalogPage carsData={carsData} />}
 

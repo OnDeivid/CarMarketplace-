@@ -31,7 +31,7 @@ export default function Login() {
             navigate('/')
 
         } catch (err) {
-            setRequestError('login failed check your credentials.')
+            setRequestError(err.message)
         }
     }
     return (

@@ -5,8 +5,9 @@
 }
 
 .content {
-    background-color: #ffffff;
-    height: 93vh;
+    background-color: #eeeeee;
+
+    /* height: 93vh;  */
     overflow-y: auto;
 }
 

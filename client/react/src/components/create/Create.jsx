@@ -20,8 +20,6 @@ export default function Create() {
     })
     const [formError, setFormError] = useState('')
 
-
-
     async function onCreate(e) {
         e.preventDefault()
 
@@ -31,9 +29,9 @@ export default function Create() {
         if (validation.flag) { return }
 
         try {
-            const data = await POST('create', formValue)
+            await POST('create', formValue)
         } catch (err) {
-            console.log(err)
+            return err
         }
     }
 

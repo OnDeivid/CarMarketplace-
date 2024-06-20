@@ -9,7 +9,11 @@ const userSchema = new mongoose.Schema({
     },
     username: { type: String, required: true },
     number: { type: Number, required: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    likedCars: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Car'
+    }]
 })
 
 

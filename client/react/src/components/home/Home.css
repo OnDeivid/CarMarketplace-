@@ -5,10 +5,12 @@
 }
 
 .content {
-    background-color: #eeeeee;
-
-    /* height: 93vh;  */
+    background-color:rgb(228, 228, 225);
+    height: 100%;
+    
     overflow-y: auto;
+    overflow-x: auto;
+
 }
 
 .content h1 {
@@ -18,7 +20,8 @@
 
 .menu-filter {
     z-index: 4;
-    background-color: rgb(5, 125, 69);
+    
+    background-color: rgb(223, 137, 8);
     border-radius: 50px;
     width: 60px;
     font-size: 2rem;
@@ -32,6 +35,6 @@
 
 .menu-filter:hover {
     width: 70px;
-    color: rgb(0, 0, 0);
+    color: rgb(32, 32, 32);
     transition: 0.3s;
 }

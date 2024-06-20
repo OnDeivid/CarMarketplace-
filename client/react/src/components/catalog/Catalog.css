@@ -1,51 +1,80 @@
-
-.catalog-page{
+.catalog-page {
     min-height: 100vh;
-
 }
+
 .catalog-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: #eeeeee;
+    padding-bottom: 45px;
     justify-content: space-around;
+}
+
+.likeCar {
+    position: absolute;
+    max-width: 22.5px;
+    height: 25px;
+    right: 3px;
+    top: 0;
 }
 
 .catalog-item {
     width: fit-content;
     margin: 10px;
     padding: 15px;
-    background-color: #f7f7f7;
     border-radius: 5px;
-    box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.1);
     transition: 1s;
+    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 1px solid rgb(214, 214, 213);
+    ;
 
 }
 
-.catalog-item:hover{
-    background-color: #e7e6e6;
+.description {
+    margin-top: 18px;
+    width: 300px;
+    color: gray;
+    text-align: center;
+
+}
+
+.price {
+    text-align: 'center';
+   background-color: rgb(223, 137, 8);
+   border-radius: 2px;
+}
+
+.shortInfo {
+    text-align: center;
+}
+
+
+.catalog-item:hover {
+    border: 1px solid rgb(209, 209, 209);
+    box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.6);
+
     transition: 0.4s;
 }
 
 .catalog-item h3 {
     margin-top: 0;
-    color: rgb(144, 94, 0);
+    color: rgb(80, 80, 80);
 }
 
 .catalog-item p {
     margin: 5px 0;
-    color: rgb(144, 94, 0);
+    color: rgb(80, 80, 80);
+
 
 }
 
 .catalog-item img {
-    width: 230px;
+    width: 300px;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-@media screen and (max-width: 768px) {
-
-}
+@media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 480px) {
     .catalog-item {

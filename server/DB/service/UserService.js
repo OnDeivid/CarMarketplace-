@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken');
 
 exports.register = async (data) => await UserModel.create(data)
 
-
-
 exports.login = async (data) => {
     const { email, password } = data
 
@@ -25,5 +23,9 @@ exports.login = async (data) => {
     const token = await jwt.sign(payload, 'secret')
 
     return { token, payload }
+
+}
+
+exports.likeCar = async (carId, userId) => {
 
 }

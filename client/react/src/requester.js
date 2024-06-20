@@ -3,6 +3,7 @@ const baseURl = 'http://localhost:3000/'
 async function requester(method, url, data) {
     const option = {
         method,
+        credentials: 'include',
     }
     if (data) {
         option['headers'] = { 'Content-type': 'application/json' }

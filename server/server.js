@@ -1,19 +1,22 @@
 const express = require('express')
+const cookieParser = require('cookie-parser');
 const cors = require('cors')
 const rateLimit = require('express-rate-limit');
 
 const { register, login } = require('./DB/service/UserService')
 const { create, getAll } = require('./DB/service/CarService')
 
+const { auth } = require('./middleware/authMiddleware')
 const connectDB = require('./DB/connectDB')
 
 const app = express()
 
+
 const corsOption = {
     origin: 'http://localhost:5173',
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    credentials: true
 }
-
 //login limit requests
 const loginLimitRequest = rateLimit({
     windowMs: 15 * 60 * 100,
@@ -31,17 +34,16 @@ const registerLimitRequest = rateLimit({
 connectDB()
 
 app.use(express.json())
-app.use(cors(corsOption))
+app.use(cors(corsOption));
+app.use(cookieParser())
 
-
-app.get('/home', async (req, res) => {
+app.get('/home', auth, async (req, res) => {
     try {
         const data = await getAll();
         res.status(200).json(data);
     } catch (error) {
         res.status(500).json({ error: 'server error' });
     }
-
 })
 
 app.post('/login', loginLimitRequest, async (req, res) => {
@@ -49,6 +51,7 @@ app.post('/login', loginLimitRequest, async (req, res) => {
         const userData = req.body
 
         const token = await login(userData)
+        res.cookie('token', token.token)
         res.status(201).send({ message: 'login successful', data: token, user: 'user' })
     } catch (error) {
         res.status(401).send({ error: error.message });
@@ -73,7 +76,6 @@ app.post('/register', registerLimitRequest, async (req, res) => {
         const userData = req.body
 
         await register(userData)
-        console.log('da have new acc')
 
         res.status(201).send({ message: 'User registered successfully' });
     } catch (error) {
@@ -83,4 +85,12 @@ app.post('/register', registerLimitRequest, async (req, res) => {
     }
 })
 
+app.get('/logout', async (req, res) => {
+    try {
+        res.clearCookie('token');
+        res.status(200).json({ message: 'Logout successful' });
+    } catch (error) {
+        res.status(500).json({ error: 'Logout failed' });
+    }
+});
 app.listen(3000, () => console.log('Server is working...'))

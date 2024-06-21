@@ -24,7 +24,7 @@ function Home() {
             <div className='content'>
                 <Filter />
                 <div className="catalog-section">
-                    <div style={{ height: '3px', backgroundColor: 'gray' }}></div>
+                    <div style={{ height: '3px', backgroundColor: 'orange' }}></div>
 
                     {/*------------------ filter fixed---------------------*/}
                     <div className='menu-filter' onClick={onShowFilter}><GrSearchAdvanced /></div>

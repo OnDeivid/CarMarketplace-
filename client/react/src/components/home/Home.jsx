@@ -10,15 +10,14 @@ import { GET } from '../../requester';
 
 function Home() {
     const { onShowFilter } = useContext(authContext)
-    const [carsData, setCarsData] = useState('');
+    const [carsData, setCarsData] = useState(null);
     useEffect(() => {
-        try {
-            GET('home').then(response => setCarsData(response))
-        } catch (err) {
-            console.log(err)
-        }
-
-    }, [])
+        GET('home')
+            .then(response => setCarsData(response))
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, []);
     return (
         <div className="wrapper">
             <div className='content'>

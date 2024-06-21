@@ -25,6 +25,31 @@ exports.login = async (data) => {
 
 }
 
-exports.likeCar = async (carId, userId) => {
+exports.likeCar = async (carId, email) => {
+    let flag = false
+    const userData = await UserModel.findOne({ email })
 
+    userData.likedCars.forEach(likedCar => {
+        if (likedCar.toString() == carId) {
+            flag = true
+        }
+    });
+
+    if (!flag) {
+        // Like the car (if it's not already liked)
+        userData.likedCars.push(carId)
+        await UserModel.findOneAndUpdate({ email }, userData)
+    } else {
+        // Unlike the car (if it's already liked)
+        const indexToRemove = userData.likedCars.indexOf(carId);
+        indexToRemove > -1 ? userData.likedCars.splice(indexToRemove, 1) : null
+        await UserModel.findOneAndUpdate({ email }, userData)
+    }
+    return userData.likedCars
+}
+
+exports.getLikedCars = async (email) => {
+    const userData = await UserModel.findOne({ email })
+
+    return userData.likedCars
 }

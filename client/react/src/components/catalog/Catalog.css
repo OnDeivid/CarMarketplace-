@@ -18,12 +18,20 @@
     top: 3px;
     color: rgb(201, 201, 201);
     transition: 0.3s;
-
 }
+.likedCar{
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    right: 2px;
+    top: 3px;
+    color: rgb(203, 0, 0);
+    transition: 0.3s;
+}
+
 .likeCar:hover {
     position: absolute;
     top: 1px;
-    color: rgb(251, 0, 0);
     transition: 0.2s;
     
 }

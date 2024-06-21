@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 const rateLimit = require('express-rate-limit');
 
-const { register, login } = require('./DB/service/UserService')
+const { register, login, likeCar, getLikedCars } = require('./DB/service/UserService')
 const { create, getAll } = require('./DB/service/CarService')
 
 const { auth } = require('./middleware/authMiddleware')
@@ -92,5 +92,28 @@ app.get('/logout', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Logout failed' });
     }
-});
+})
+
+app.post('/like/:id', auth, async (req, res) => {
+    const carId = req.params.id
+    const userId = res.locals.email
+    try {
+        const updatedLikedCars = await likeCar(carId, userId)
+        res.status(200).json(updatedLikedCars);
+    } catch (errors) {
+        return res.status(400).json({ error: errors });
+    }
+})
+
+
+app.post('/likedCars', auth, async (req, res) => {
+    const userId = res.locals.email
+    try {
+        const likedCars = await getLikedCars(userId)
+        res.status(200).json(likedCars);
+    } catch (errors) {
+        return res.status(400).json({ error: errors });
+    }
+})
+
 app.listen(3000, () => console.log('Server is working...'))

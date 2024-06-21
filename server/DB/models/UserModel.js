@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     likedCars: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Car'
+        ref: 'Cars'
     }]
 })
 

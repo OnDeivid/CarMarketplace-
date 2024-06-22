@@ -37,7 +37,7 @@ body {
     height: 50%;
     max-height: 300px;
     min-height: 400px;
-    right:-90px;
+    right: -90px;
     max-width: 900px;
     min-width: 400px;
 
@@ -115,12 +115,12 @@ body {
 
     .liked-container {
         right: 100px;
-        top: 15vh;
+        top: -15vh;
     }
 
     .liked-options {
-
-        margin-top: -20px;
+        position: absolute;
+        right: -70px;
         min-width: 330px;
         min-height: fit-content;
     }

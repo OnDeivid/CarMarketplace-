@@ -37,7 +37,6 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(252, 252, 252);
         height: 50%;
         width: 97%;
         border-radius: 60px;
@@ -57,7 +56,6 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(221, 221, 221);
         height: 100%;
         width: 100%;
         animation: HideFilter 2s;
@@ -72,8 +70,6 @@ body {
     
     /* background-color: rgb(252, 252, 252); */
        background-color: rgb(122, 108, 108);
-
-
     height: 47%;
     /* height: 50%; */
     max-height: 299px;
@@ -84,7 +80,6 @@ body {
     margin-top: 0px;
     animation: ShowFilter 1.5s;
     z-index: 1;
-
 }
 
 .labelOption {
@@ -113,7 +108,6 @@ body {
     font-size: 13px;
     height: 20px;
     text-align: center;
-
 }
 
 .filterInput:focus {
@@ -166,23 +160,34 @@ body {
 
 
 @media (max-width: 668px) {
+    .filter-holder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:transparent;
+        height: 100%;
+        width: 100%;
+        animation: HideFilter 0.3s;
+    }
 
     .filter-holder-fixed {
-        margin-top: -70px;
         position: fixed;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: red;
-        height: 30%;
-        width: 97%;
+        height: fit-content;
+        background-color: transparent;
         border-radius: 10px;
-
     }
-
+    .filterInput {
+        width: 60px;
+        font-size: 13px;
+        height: 17px;
+        text-align: center;
+    }
     .filter-options {
-        margin-top: -20px;
-        min-width: 330px;
-        min-height: fit-content;
+        min-width: 350px;
+        min-height: 200px;
+        max-width: 380px;
     }
 }

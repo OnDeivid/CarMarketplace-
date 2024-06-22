@@ -17,7 +17,7 @@ export default function CatalogCard({ carsData, likedCars, setLikedCars }) {
         <div key={carsData._id} className="catalog-item" >
             <FaHeart id={carsData._id} onClick={onLike} className={likedCars.includes(carsData._id) ? 'likedCar' : 'likeCar'} />
             <div id={carsData._id} onClick={onDetails}>
-                <p style={{ color: 'white', marginTop: '-13px', fontSize: 11 }}>uploaded on: 2.5.2023</p>
+                <p className='datePost'>uploaded on: 2.5.2023</p>
                 <img src='https://img.freepik.com/free-photo/view-three-dimensional-car_23-2150998581.jpg' alt={carsData.name} />
                 <h3>{carsData.model}</h3>
                 <p className='shortInfo'>Year:{carsData.year} , fuel:{carsData.fuel} , {carsData.mileage}km</p>

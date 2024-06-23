@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 const rateLimit = require('express-rate-limit');
 
-const { register, login, likeCar, getLikedCars } = require('./DB/service/UserService')
+const { register, login, likeCar, getHearts, getLikedCars } = require('./DB/service/UserService')
 const { create, getAll } = require('./DB/service/CarService')
 
 const { auth } = require('./middleware/authMiddleware')
@@ -106,14 +106,34 @@ app.post('/like/:id', auth, async (req, res) => {
 })
 
 
-app.post('/likedCars', auth, async (req, res) => {
-    const userId = res.locals.email
+app.get('/getHeart', auth, async (req, res) => {
+    const userId = res.locals.email;
     try {
-        const likedCars = await getLikedCars(userId)
-        res.status(200).json(likedCars);
+        if (!userId) {
+            return res.status(400).json({ error: 'User Email not found' });
+        }
+        const hearts = await getHearts(userId);
+        res.status(200).json(hearts);
     } catch (errors) {
-        return res.status(400).json({ error: errors });
+        console.error('Error fetching liked cars:', errors);
+        return res.status(500).json({ error: errors });
     }
-})
+});
+
+app.get('/likedCars', auth, async (req, res) => {
+    const userId = res.locals.email;
+    try {
+        if (!userId) {
+            return res.status(400).json({ error: 'User Email not found' });
+        }
+        const likedCars = await getLikedCars(userId);
+        console.log(likedCars)
+
+        res.status(200).json(likedCars);
+    } catch (error) {
+        console.error('Error fetching liked cars:', error);
+        return res.status(500).json({ error: errors });
+    }
+});
 
 app.listen(3000, () => console.log('Server is working...'))

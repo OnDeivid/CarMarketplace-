@@ -48,8 +48,13 @@ exports.likeCar = async (carId, email) => {
     return userData.likedCars
 }
 
-exports.getLikedCars = async (email) => {
+exports.getHearts = async (email) => {
     const userData = await UserModel.findOne({ email })
-
     return userData.likedCars
+}
+
+exports.getLikedCars = async (email) => {
+    const likedCars = await UserModel.findOne({ email }).populate('likedCars')
+    return likedCars
+
 }

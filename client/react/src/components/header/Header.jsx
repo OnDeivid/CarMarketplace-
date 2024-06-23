@@ -8,14 +8,18 @@ import { CiHeart } from "react-icons/ci";
 import { SideBarData } from '../../CONST';
 import { authContext } from '../../context/authContext';
 
-import './Header.css'
+// import LikedCars from '../likedCars/LikedCars';
+import LikedCarsCatalog from './LikedCarsCatalog';
 
+import './Header.css'
 export default function Header() {
 
     const [sideBar, setSideBar] = useState(false)
-    const { showLiked, onShowLiked, auth } = useContext(authContext)
-    const showSideBar = () => setSideBar(prev => !prev)
+    // const [showLiked, setShowLiked] = useState(false)
+    const { auth } = useContext(authContext)
+    console.log('menu')
 
+    const showSideBar = () => setSideBar(prev => !prev)
     return (
         <>
             <div className='navbar'>
@@ -23,9 +27,11 @@ export default function Header() {
                     {sideBar ? <MdHideSource onClick={showSideBar} /> : <FaIcons.FaBars onClick={showSideBar} />}
                 </Link>
 
-                <Link to='#' onClick={onShowLiked} className={showLiked ? 'menu-loved-active' : 'menu-loved'}>
+                {/* <Link to='#' onClick={() => setShowLiked(prev => !prev)} className={showLiked ? 'menu-loved-active' : 'menu-loved'}>
                     <CiHeart />
-                </Link>
+                </Link> */}
+
+                <LikedCarsCatalog />
 
             </div>
             <nav>
@@ -44,6 +50,7 @@ export default function Header() {
                         ))}
                 </ul>
             </nav >
+            {/* {showLiked && <LikedCars showLiked={showLiked} />} */}
         </>
     )
 }

@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
-import { authContext } from '../../context/authContext';
+import React, { useState } from 'react';
+import { GrSearchAdvanced } from "react-icons/gr";
+
 import './Filter.css';
 
 export default function Filter() {
-    const { showFilter } = useContext(authContext);
 
+    const [showFilter, setShowFilter] = useState(false);
+    console.log('filter')
     return (
         <div className='filter-container'>
+               {/*------------------ filter fixed---------------------*/}
+               <div className='menu-filter' onClick={() => setShowFilter(prev => !prev)}><GrSearchAdvanced /></div>
+
             <div className={!showFilter ? 'filter-holder' : 'filter-holder-fixed'}>
                 <div className='filter-options'>
 

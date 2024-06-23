@@ -18,18 +18,18 @@ import PrivateRoute from './privateRoute/PrivateRouter';
 import PublicRoute from './publicRoute/PublicRoute';
 
 function App() {
-  const [showFilter, setShowFilter] = useState(false);
+  // const [showFilter, setShowFilter] = useState(false);
   const [showLiked, setShowLiked] = useState(false);
-  const onShowFilter = () => setShowFilter(!showFilter);
-  const onShowLiked = () => setShowLiked(!showLiked);
+  // const onShowFilter = () => setShowFilter(!showFilter);
+  // const onShowLiked = () => setShowLiked(!showLiked);
   const [auth, setAuth] = useSessionStorage('auth', '');
 
   const ProvidedData = {
     auth, setAuth,
-    showFilter,
-    onShowFilter,
-    showLiked,
-    onShowLiked
+    // showFilter,
+    // onShowFilter,
+    // showLiked,
+    // onShowLiked
   };
 
   function onLogout() {
@@ -37,6 +37,7 @@ function App() {
     GET('logout')
     sessionStorage.removeItem('auth')
   }
+  console.log('app')
 
   return (
     <div style={{ marginTop: '50px', height: '100vh', width: '100vw', backgroundColor: 'rgb(206, 202, 202)' }}>
@@ -51,7 +52,7 @@ function App() {
             <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
             <Route path='/' element={<Home />} />
           </Routes>
-          {showLiked && <LikedCars />}
+          {/* {showLiked && <LikedCars />} */}
         </Router>
       </authContext.Provider>
     </div >

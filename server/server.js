@@ -127,12 +127,10 @@ app.get('/likedCars', auth, async (req, res) => {
             return res.status(400).json({ error: 'User Email not found' });
         }
         const likedCars = await getLikedCars(userId);
-        console.log(likedCars)
-
         res.status(200).json(likedCars);
     } catch (error) {
         console.error('Error fetching liked cars:', error);
-        return res.status(500).json({ error: errors });
+        return res.status(500).json({ error: error });
     }
 });
 

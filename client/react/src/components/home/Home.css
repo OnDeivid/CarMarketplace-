@@ -7,7 +7,6 @@
 .content {
     background-color:rgb(228, 228, 225);
     height: 100%;
-    
     overflow-y: auto;
     overflow-x: auto;
 
@@ -20,7 +19,6 @@
 
 .menu-filter {
     z-index: 4;
-    
     background-color: rgb(223, 137, 8);
     border-radius: 50px;
     width: 60px;

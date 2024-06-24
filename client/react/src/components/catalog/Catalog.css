@@ -1,5 +1,6 @@
 .catalog-page {
     min-height: 100vh;
+    z-index: -100;
 }
 
 .catalog-container {
@@ -11,6 +12,7 @@
 }
 
 .likeCar {
+    
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
@@ -21,6 +23,7 @@
 }
 
 .likedCar {
+    
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;

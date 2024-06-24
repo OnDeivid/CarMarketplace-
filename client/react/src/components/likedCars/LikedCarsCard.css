@@ -10,12 +10,14 @@
 
 .likedHolder {
     margin-top: 20px;
-    height: 300px;
+    height: 330px;
+    transition: background-color 0.5s;
 }
 
 .likedHolder:hover {
-    background-color: rgb(27, 27, 27);
-    transition: background-color 0.5s;
+    background-color: rgb(223, 4, 4);
+    height: 330px;
+    transition: background-color 1.5s;
 
 }
 

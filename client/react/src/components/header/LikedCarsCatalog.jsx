@@ -8,6 +8,7 @@ import LikedCars from '../likedCars/LikedCars';
 export default function LikedCarsCatalog() {
     const [showLiked, setShowLiked] = useState(false)
     console.log('HeartedCars')
+    
     return (
         <div>
 

@@ -1,65 +1,110 @@
 .profile-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    height: 100vh;
+    margin-top: -25px;
+    overflow-y: auto;
+    text-align: center;
 }
 
 .profile-header {
     text-align: center;
-    margin-bottom: 20px;
-}
+    height: 300px;
 
-.infoHolder {
-    background-color: rgb(218, 217, 217);
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-
-
-.profile-header h1 {
-    font-size: 2rem;
-    color: #333;
 }
 
 .profile-header p {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 30px;
+    text-align: center;
+
 }
 
-.profile-details {
-    position: relative;
-    background-color: #f9f9f9;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.profile-details h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.profile-img {
+.profile-header img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
+    margin: 0 auto;
 }
 
-.profile-details p {
-    font-size: 1rem;
-    color: #b35858;
-    margin-bottom: 8px;
+.profile-header h1 {
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+.infoHolder {
+
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.profile-details {
+    position: absolute;
+    background-color: rgb(42, 2, 2);
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    left: 20px;
+    top: 20px;
 }
 
 
-.profile-container {
-    justify-content: center;
-    max-height: 340px;
-    font-size: 5px;
-    line-height: 10px;
+.potatoHolder {
+    position: absolute;
+    overflow-y: auto;
+
+    display: inline-block;
+    border-radius: 10px;
+    height: 310px;
+    right: 20px;
+    top: 10px;
+}
+
+
+.holderG {
+    position: relative;
+    height: 260px;
+    width: 700px;
+    display: inline-block;
+    align-items: center;
+    background-color: rgb(79, 27, 27);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 668px) {
+    .holderG {
+
+        position: relative;
+        height: 550px;
+        width: 294px;
+        display: inline-block;
+        align-items: center;
+        background-color: rgb(146, 146, 146);
+        padding: 40px;
+        border-radius: 10px;
+    }
+
+    .potatoHolder {
+        position: absolute;
+        overflow-y: auto;
+        background-color: rgb(146, 146, 146);
+
+        display: inline-block;
+        border-radius: 10px;
+        height: 310px;
+        width: 310px;
+        top: 300px;
+        left: 30px;
+    }
+
+    .profile-details {
+        position: absolute;
+        background-color: rgb(0, 0, 0);
+        padding: 20px;
+        width: 333px;
+        left: 0px;
+        border-radius: 10px;
+    }
 }

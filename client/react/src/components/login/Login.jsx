@@ -1,10 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { POST } from '../../requester';
 import useForm from '../../hooks/useForm';
 import { authContext } from '../../context/authContext';
 import { useContext, useState } from 'react';
 import useFormValidation from '../../hooks/useFormValidation';
-
 import './Login.css'
 
 export default function Login() {
@@ -63,7 +62,7 @@ export default function Login() {
 
                     <button type="submit">Login</button>
                 </form>
-                <h5><a href="/register">REGISTER HERE</a></h5>
+                <h5><Link to="/register">REGISTER</Link></h5>
             </div>
         </div>
     );

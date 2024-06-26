@@ -1,7 +1,6 @@
 import { POST } from '../../requester'
 import useForm from '../../hooks/useForm'
-import { useNavigate } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
 import './Register.css'
 import useFormValidation from '../../hooks/useFormValidation'
 import { useState } from 'react'
@@ -88,7 +87,7 @@ export default function Register() {
                     </select> */}
                     <button type="submit">Register</button>
                 </form>
-                <h5><a>Login HERE</a></h5>
+                <h5><Link to='/login'>LOGIN</Link></h5>
             </div>
         </div>
     )

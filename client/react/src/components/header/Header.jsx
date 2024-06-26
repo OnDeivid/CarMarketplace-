@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import * as FaIcons from "react-icons/fa";
 import { MdHideSource } from "react-icons/md";
-import { CiHeart } from "react-icons/ci";
 
 import { SideBarData } from '../../CONST';
 import { authContext } from '../../context/authContext';

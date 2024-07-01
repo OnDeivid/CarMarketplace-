@@ -8,11 +8,11 @@
     flex-wrap: wrap;
     padding-bottom: 45px;
     justify-content: space-around;
-    background-color: rgb(0, 0, 0);
+    background-color: #212324;
 }
 
 .likeCar {
-    
+
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
@@ -23,7 +23,7 @@
 }
 
 .likedCar {
-    
+
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
@@ -77,8 +77,8 @@
 
 .catalog-item:hover {
     border: 1px solid rgb(209, 209, 209);
-    box-shadow: 0px 0px 10px 0.1px rgba(255, 255, 255, 0.6);
-
+    /* box-shadow: 0px 0px 10px 0.1px rgba(255, 255, 255, 0.6); */
+    background-color: #2f5db3;
     transition: 0.4s;
 }
 

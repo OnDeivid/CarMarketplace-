@@ -23,7 +23,7 @@ function Home() {
             <div className='content'>
                 <Filter />
                 <div className="catalog-section">
-                    <div style={{ height: '3px', backgroundColor: 'orange' }}></div>
+                    <div style={{ height: '3px', backgroundColor: '#DC5F00' }}></div>
 
                     {!carsData ? <div style={{ color: 'black' }}>No Posts Yet</div> : <CatalogPage carsData={carsData} />}
 

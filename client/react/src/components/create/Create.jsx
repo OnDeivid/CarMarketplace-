@@ -37,7 +37,6 @@ export default function Create() {
 
     return (
         <div className='container-create'>
-            <h1>Create Post</h1>
             <div className='holder'>
 
                 <form onSubmit={onCreate} className="create-form">
@@ -97,7 +96,6 @@ export default function Create() {
                         <label htmlFor="phoneNumber">Phone Number:</label>
                         <input className='createInput' type="text" id="phoneNumber" name="phoneNumber" value={formValue.phoneNumber} onChange={onChangeValue} placeholder='089 123 321' />
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.phoneNumber}</p>
-
                     </div>
 
                     <div className="create-item-desc">  {/*description*/}
@@ -105,6 +103,25 @@ export default function Create() {
                         <textarea className='createInput-desc' type="text" id="description" name="description" value={formValue.description} onChange={onChangeValue} />
                     </div>
                     <p style={{ color: 'red', fontSize: 13, textAlign: 'center', marginTop: '140px' }} className="error-message">{formError?.description}</p>
+
+                    <div className="create-item-images">   {/*images*/}
+                        <label htmlFor="images">image 1:</label>
+                        <input className='createInput' type="text" id="images" name="images1" />
+                      
+                        <label htmlFor="images">image 2:</label>
+                        <input className='createInput' type="text" id="images" name="images2" />
+
+                        <label htmlFor="images">image 3:</label>
+                        <input className='createInput' type="text" id="images" name="images3" />
+
+                        <label htmlFor="images">image 4:</label>
+                        <input className='createInput' type="text" id="images" name="images4" />
+
+                        <label htmlFor="images">image 5:</label>
+                        <input className='createInput' type="text" id="images" name="images5" />
+                        <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.phoneNumber}</p>
+                    </div>
+
 
                     <div className="create-item-btn">
                         <button type="submit">Submit</button>

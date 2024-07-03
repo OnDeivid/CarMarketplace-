@@ -10,7 +10,7 @@ import { GET } from './requester';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Profile from './components/profile/Profile';
-import LikedCars from './components/likedCars/LikedCars';
+// import LikedCars from './components/likedCars/LikedCars';
 import useSessionStorage from './hooks/useSessionStorage'
 import Logout from './components/logout/Logout';
 import Create from './components/create/Create';
@@ -19,7 +19,7 @@ import PublicRoute from './publicRoute/PublicRoute';
 
 function App() {
   // const [showFilter, setShowFilter] = useState(false);
-  const [showLiked, setShowLiked] = useState(false);
+  // const [showLiked, setShowLiked] = useState(false);
   // const onShowFilter = () => setShowFilter(!showFilter);
   // const onShowLiked = () => setShowLiked(!showLiked);
   const [auth, setAuth] = useSessionStorage('auth', '');
@@ -37,10 +37,9 @@ function App() {
     GET('logout')
     sessionStorage.removeItem('auth')
   }
-  console.log('app')
 
   return (
-    <div style={{ marginTop: '50px', height: '100vh', width: '100vw', backgroundColor: 'rgb(206, 202, 202)' }}>
+    <div style={{ marginTop: '50px', height: '100vh', width: '100vw', backgroundColor: '#f1f0f0' }}>
       <authContext.Provider value={ProvidedData}>
         <Router>
           <Header />

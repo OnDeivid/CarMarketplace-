@@ -3,9 +3,11 @@
     margin-top: -25px;
     overflow-y: auto;
     text-align: center;
+
 }
 
 .profile-header {
+
     text-align: center;
     height: 300px;
 
@@ -27,7 +29,7 @@
 
 .profile-header h1 {
     font-size: 20px;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .infoHolder {
@@ -40,38 +42,58 @@
 
 .profile-details {
     position: absolute;
-    background-color: rgb(42, 2, 2);
+    background-color: rgb(42, 42, 42);
     display: inline-block;
     padding: 20px;
     border-radius: 10px;
     left: 20px;
     top: 20px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.6);
 }
 
 
 .potatoHolder {
     position: absolute;
     overflow-y: auto;
-
     display: inline-block;
     border-radius: 10px;
     height: 310px;
     right: 20px;
     top: 10px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.4);
+
 }
 
+.profile-cover {
+    background-color: #DC5F00;
+    width: 90vw;
+    max-width: 800px;
+    min-width: 500px;
+    height: 300px;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+}
 
 .holderG {
     position: relative;
     height: 260px;
-    width: 700px;
+    width: 90vw;
     display: inline-block;
     align-items: center;
-    background-color: rgb(79, 27, 27);
+    background-color: #f1f0f0;
     padding: 40px;
     border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.7);
 }
 
+@media (max-width: 988px) and (min-width: 668px) {
+    .profile-details {
+        display: none;
+    }
+
+}
 
 @media (max-width: 668px) {
     .holderG {
@@ -90,7 +112,6 @@
         position: absolute;
         overflow-y: auto;
         background-color: rgb(146, 146, 146);
-
         display: inline-block;
         border-radius: 10px;
         height: 310px;

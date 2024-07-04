@@ -45,7 +45,7 @@ function App() {
           <Header />
           <Routes>
             <Route path='/profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
-            <Route path='/create' element={<PrivateRoute><Create /></PrivateRoute>} />
+            <Route path='/create' element={<PrivateRoute><Create userData={auth} /></PrivateRoute>} />
             <Route path='/logout' element={<Logout onLogout={onLogout} />} />
             <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
             <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />

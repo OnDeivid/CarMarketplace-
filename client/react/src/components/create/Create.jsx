@@ -6,7 +6,8 @@ import { POST } from '../../requester';
 
 import './Create.css';
 
-export default function Create() {
+export default function Create({ userData }) {
+    const userId = userData.data.payload._id
     const { formValue, onChangeValue } = useForm({
         year: '',
         mileage: '',
@@ -17,6 +18,8 @@ export default function Create() {
         description: '',
         phoneNumber: '',
         currency: 'USD',
+        userId: userId
+
     })
     const [formError, setFormError] = useState('')
 
@@ -29,6 +32,7 @@ export default function Create() {
         if (validation.flag) { return }
 
         try {
+
             await POST('create', formValue)
         } catch (err) {
             return err
@@ -37,8 +41,8 @@ export default function Create() {
 
     return (
         <div className='container-create'>
+            <h1>asdasd</h1>
             <div className='holder'>
-
                 <form onSubmit={onCreate} className="create-form">
 
                     <div className="create-item">   {/*year*/}
@@ -107,7 +111,7 @@ export default function Create() {
                     <div className="create-item-images">   {/*images*/}
                         <label htmlFor="images">image 1:</label>
                         <input className='createInput' type="text" id="images" name="images1" />
-                      
+
                         <label htmlFor="images">image 2:</label>
                         <input className='createInput' type="text" id="images" name="images2" />
 

@@ -10,6 +10,8 @@ const carSchema = new mongoose.Schema({
     description: { type: String },
     currency: { type: String, required: true },
     fuel: { type: String, required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+
 })
 
 const CarModel = mongoose.model('Cars', carSchema);

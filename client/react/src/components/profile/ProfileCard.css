@@ -4,19 +4,19 @@
     border-radius: 10px;
     margin-bottom: 220px;
     display: block;
-    margin-left: 10px;
-
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .profile-container {
     background-color: rgb(87, 87, 87);
-
     border-radius: 10px;
 
 }
 
 .profile-container img {
     height: 150px;
+    border-radius: 10px;
 }
 
 .profile-container h2 {

@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProfileCards.css'
+import './ProfileCard.css'
 export default function ProfileCards({ item }) {
     return (
         <div className='carPosts'>

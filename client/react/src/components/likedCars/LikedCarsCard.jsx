@@ -1,7 +1,9 @@
 import React from 'react'
+
 import './LikedCarsCard.css'
 
 export default function LikedCarsCard({ carInfo }) {
+    console.log('likedCarsCARD')
 
     return (
         <div className='likedPosts'>

@@ -7,7 +7,7 @@
     margin-left: 0.5vw;
     background-color: rgb(45, 45, 45);
     box-shadow: 0px 10px 5px -3px rgba(0, 0, 0, 1);
-
+    margin-top: 5px;
 }
 
 img {
@@ -22,16 +22,11 @@ h2 {
 }
 
 
-
 h3 {
     margin-top: 3px;
     text-align: center;
     color: black;
 }
-
-
-
-
 
 
 .likedHolder {
@@ -41,7 +36,8 @@ h3 {
 }
 
 .likedHolder:hover {
-    background-color: rgb(223, 4, 4);
+    background-color: #DC5F00;
+
     height: 330px;
     transition: background-color 1.5s;
 
@@ -86,7 +82,6 @@ h3 {
         width: 172px;
         margin-left: 0px;
     }
-
 
     .likedHolder {
         float: left;

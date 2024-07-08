@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 
+import { GET } from '../../requester';
+
 import Filter from '../filter/Filter';
 import CatalogPage from '../catalog/Catalog';
 
 import './Home.css';
-import { GET } from '../../requester';
 
 function Home() {
 
+    console.log('home')
+    
     // const [onShowFilter, setShowFilter] = () => setShowFilter(prev => !prev);
     const [carsData, setCarsData] = useState(null);
     useEffect(() => {
@@ -17,7 +20,6 @@ function Home() {
                 console.error('Error fetching data:', error);
             });
     }, []);
-    console.log('home')
     return (
         <div className="wrapper">
             <div className='content'>

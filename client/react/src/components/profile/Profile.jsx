@@ -1,18 +1,22 @@
-import './Profile.css'
 import ProfileCards from './ProfileCard';
-export default function Profile() {
+import { useEffect, useState } from 'react';
 
-    let catalogItems = [
-        { id: 1, model: 'Item 1', mileage: '300', price: '10 BGN', model: 'model of Item 1', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 2, model: 'Item 2', mileage: '300', price: '20 BGN', model: 'model of Item 2', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 3, model: 'Item 3', mileage: '300', price: '15 BGN', model: 'model of Item 3', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 4, model: 'Item 4', mileage: '300', price: '10 BGN', model: 'model of Item 1', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 5, model: 'Item 5', mileage: '300', price: '20 BGN', model: 'model of Item 2', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 6, model: 'Item 6', mileage: '300', price: '15 BGN', model: 'model of Item 3', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 7, model: 'Item 7', mileage: '300', price: '10 BGN', model: 'model of Item 1', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 8, model: 'Item 8', mileage: '300', price: '20 BGN', model: 'model of Item 2', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-        { id: 9, model: 'Item 9', mileage: '300', price: '15 BGN', model: 'model of Item 3', imageUrl: 'https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' },
-    ]
+import { GET } from '../../requester';
+
+import './Profile.css'
+
+export default function Profile() {
+    
+    console.log('Profile')
+
+    const [myCars, setMyCars] = useState([])
+    const [likedCars, setLikedCars] = useState([])
+
+    useEffect(() => {
+        GET('mycars').then(res => setMyCars(res))
+        GET('likedCars').then(res => setLikedCars(res))
+    }, [])
+
     return (
         <div className="profile-page">
             <div className='profile-cover'>
@@ -37,20 +41,20 @@ export default function Profile() {
                 {/* LIKED CARS!!! */}
                 <p className='likedText'>Liked Cars</p>
                 <div className='potatoHolder'>
-                    {catalogItems.map(item => {
+                    {likedCars.map(item => {
                         return (
-                            <ProfileCards key={item.id} item={item} />
+                            <ProfileCards key={item._id} item={item} />
                         )
                     })}
                 </div>
 
             </div>
 
-            {/* MY POSTS!!! */}
+            {/* MY CARS!!! */}
             <div className='myCars-Post'>
-                {catalogItems.map(item => {
+                {myCars.map(item => {
                     return (
-                        <ProfileCards key={item.id} item={item} />
+                        <ProfileCards key={item._id} item={item} />
                     )
                 })}
             </div>

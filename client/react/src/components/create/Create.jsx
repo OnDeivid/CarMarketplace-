@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
+import { POST } from '../../requester';
+
 import useForm from '../../hooks/useForm';
 import useFormValidation from '../../hooks/useFormValidation';
-import { POST } from '../../requester';
 
 import './Create.css';
 
 export default function Create({ userData }) {
+    console.log('create')
+    
     const userId = userData.data.payload._id
     const { formValue, onChangeValue } = useForm({
         year: '',

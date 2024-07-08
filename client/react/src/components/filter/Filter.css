@@ -17,7 +17,6 @@ body {
     align-items: center;
     background-color: #f1f0f0;
 
-
     height: 100%;
     width: 100%;
     animation: HideFilter 0.3s;
@@ -44,6 +43,7 @@ body {
         border-radius: 60px;
         margin-top: 0px;
         animation: ShowFilter 1.5s;
+        z-index: 1;
     }
 
     50% {

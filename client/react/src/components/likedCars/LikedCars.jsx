@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
-import LikedCarsCard from "./LikedCarsCard"
-// import { useContext } from "react"
-// import { authContext } from "../../context/authContext"
 import { GET } from "../../requester";
 
+import LikedCarsCard from "./LikedCarsCard"
+
 import './LikedCars.css'
+
 export default function LikedCars({ showLiked }) {
+    console.log('likedCars')
+    
     const [likedCars, setLikedCars] = useState([])
     useEffect(() => {
         GET(`likedCars`)

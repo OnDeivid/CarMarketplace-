@@ -1,11 +1,15 @@
-import { POST } from '../../requester'
-import useForm from '../../hooks/useForm'
 import { Link, useNavigate } from 'react-router-dom'
-import './Register.css'
-import useFormValidation from '../../hooks/useFormValidation'
 import { useState } from 'react'
 
+import { POST } from '../../requester'
+
+import useFormValidation from '../../hooks/useFormValidation'
+import useForm from '../../hooks/useForm'
+
+import './Register.css'
+
 export default function Register() {
+
     const navigate = useNavigate()
     const { formValue, onChangeValue } = useForm({ email: '', username: '', number: '', password: '', rePassword: '' })
     const [formError, setFormError] = useState('')

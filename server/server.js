@@ -3,14 +3,14 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 const rateLimit = require('express-rate-limit');
 
-const { register, login, likeCar, getHearts, getLikedCars } = require('./DB/service/UserService')
-const { create, getAll } = require('./DB/service/CarService')
+const { register, login, likeCar, getLikedCars, getHearts } = require('./DB/service/UserService')
+const { create, getAll, getMyCars } = require('./DB/service/CarService')
+
 
 const { auth } = require('./middleware/authMiddleware')
 const connectDB = require('./DB/connectDB')
 
 const app = express()
-
 
 const corsOption = {
     origin: 'http://localhost:5173',
@@ -131,6 +131,21 @@ app.get('/likedCars', auth, async (req, res) => {
     } catch (error) {
         console.error('Error fetching liked cars:', error);
         return res.status(500).json({ error: error });
+    }
+});
+
+
+app.get('/myCars', auth, async (req, res) => {
+    const userId = res.locals.userId;
+    try {
+        if (!userId) {
+            return res.status(400).json({ error: 'no Cars yet!' });
+        }
+        const myCars = await getMyCars(userId);
+        res.status(200).json(myCars);
+
+    } catch (errors) {
+        return res.status(500).json({ error: errors });
     }
 });
 

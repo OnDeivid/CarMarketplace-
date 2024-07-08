@@ -1,11 +1,16 @@
 import React from 'react'
+
+import extractDate from '../utils/extractDate'
+
 import './ProfileCard.css'
+
 export default function ProfileCards({ item }) {
+    console.log('profile-CARD')
     return (
         <div className='carPosts'>
             <div className="profile-container">
-                <p style={{ color: 'white', marginTop: '5px', marginLeft: '10px', fontSize: '10px' }}>uploaded on: 2.5.2023</p>
-                <h3>Model:{item.model}</h3>
+                <p style={{ color: 'white', marginTop: '5px', marginLeft: '10px', fontSize: '10px' }}>{extractDate(item.createdAt)}</p>
+                <h3>{item.model}</h3>
                 <img src={item.imageUrl} />
                 <div className='carInfo'>
                     <p>Price:{item.price}, Fuel:{item.fuel}, Mileage:{item.mileage}</p>

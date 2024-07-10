@@ -12,7 +12,7 @@ export default function LikedCarsCard({ carInfo }) {
                     <div className="likedHolder" key={car._id}>
                         <h3 style={{ color: 'white' }}>Audi RS6</h3>
                         <p style={{ color: 'white', marginTop: '-20px', marginLeft: '10px', fontSize: '10px' }}>uploaded on: 11.25.2023</p>
-                        <img src='https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' />
+                        <img className='carLikedImg' src='https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' />
                         <div className='likedCarInfo'>
                             <p>year: {car.year}</p>
                             <p>Fuel: {car.fuel}</p>

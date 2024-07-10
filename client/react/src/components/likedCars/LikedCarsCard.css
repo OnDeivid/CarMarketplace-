@@ -10,10 +10,11 @@
     margin-top: 5px;
 }
 
-img {
+.carLikedImg {
+    border-radius: 7px;
     max-width: 300px;
     display: block;
-    margin-left: auto;
+    margin-left: 1px;
     margin-right: auto;
 }
 

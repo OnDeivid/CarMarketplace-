@@ -6,15 +6,16 @@ import useForm from '../../hooks/useForm';
 import useFormValidation from '../../hooks/useFormValidation';
 
 import './Create.css';
+import { dataNormalization } from '../utils/dataNormalization';
 
 export default function Create({ userData }) {
     console.log('create')
-    
+
     const userId = userData.data.payload._id
     const { formValue, onChangeValue } = useForm({
         year: '',
         mileage: '',
-        fuel: 'Petrol',
+        fuel: 'petrol',
         model: '',
         brand: '',
         price: '',
@@ -29,14 +30,16 @@ export default function Create({ userData }) {
     async function onCreate(e) {
         e.preventDefault()
 
+
         const validation = useFormValidation(formValue)
         setFormError(validation.error)
 
         if (validation.flag) { return }
-
+        const data = dataNormalization(formValue)
+        console.log(data)
         try {
 
-            await POST('create', formValue)
+            await POST('create', data)
         } catch (err) {
             return err
         }

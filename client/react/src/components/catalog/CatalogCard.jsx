@@ -29,10 +29,10 @@ export default function CatalogCard({ carsData, likedCars, setLikedCars, auth })
 
             <div onClick={() => onDetails(carsData._id)}>
 
-                <p className='datePost' style={{ color: "rgb(200, 200, 200)", fontSize:9.5}}>{extractDate(carsData.createdAt)}</p>
+                <p className='datePost' style={{ color: "rgb(200, 200, 200)", fontSize: 9.5 }}>{extractDate(carsData.createdAt)}</p>
                 <img src='https://img.freepik.com/free-photo/view-three-dimensional-car_23-2150998581.jpg' alt={carsData.name} />
 
-                <h3>{carsData.model}</h3>
+                <h3>{carsData.brand}/{carsData.model}</h3>
 
                 <p className='shortInfo'>Year:{carsData.year} , fuel:{carsData.fuel} , {carsData.mileage}km</p>
 

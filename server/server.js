@@ -4,7 +4,7 @@ const cors = require('cors')
 const rateLimit = require('express-rate-limit');
 
 const { register, login, likeCar, getLikedCars, getHearts } = require('./DB/service/UserService')
-const { create, getAll, getMyCars } = require('./DB/service/CarService')
+const { create, getAll, getMyCars, filterBy } = require('./DB/service/CarService')
 
 
 const { auth } = require('./middleware/authMiddleware')
@@ -148,5 +148,17 @@ app.get('/myCars', auth, async (req, res) => {
         return res.status(500).json({ error: errors });
     }
 });
+
+app.post('/filterBy', async (req, res) => {
+    const filter = req.body;
+
+    try {
+        const filtaredData = await filterBy(filter)
+        return filtaredData
+    } catch (error) {
+        console.log(error)
+    }
+
+})
 
 app.listen(3000, () => console.log('Server is working...'))

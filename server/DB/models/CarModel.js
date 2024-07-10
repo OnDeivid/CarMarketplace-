@@ -17,4 +17,8 @@ const carSchema = new mongoose.Schema({
 
 const CarModel = mongoose.model('Cars', carSchema);
 
+carSchema.pre('save', function(next) {
+    this.model = this.model.toUpperCase();
+    next();
+});
 module.exports = CarModel;

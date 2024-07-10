@@ -13,8 +13,10 @@ export default function ProfileCards({ item }) {
                 <h3>{item.model}</h3>
                 <img src={item.imageUrl} />
                 <div className='carInfo'>
-                    <p>Price:{item.price}, Fuel:{item.fuel}, Mileage:{item.mileage}</p>
+                    <p>Price:{item.price}, Fuel:{item.fuel}</p>
+                    <p>Mileage:{item.mileage}</p>
                 </div>
+                
                 <h2>{item.price}</h2>
 
             </div>

@@ -39,8 +39,8 @@ export default function Profile() {
 
 
                 {/* LIKED CARS!!! */}
-                <p className='likedText'>Liked Cars</p>
                 <div className='potatoHolder'>
+                <p className='likedText'>Liked Cars</p>
                     {likedCars.map(item => {
                         return (
                             <ProfileCards key={item._id} item={item} />

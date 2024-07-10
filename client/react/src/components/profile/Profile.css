@@ -35,7 +35,7 @@
 
 .profile-details {
     position: absolute;
-    background-color: rgb(42, 42, 42);
+    background-color: rgb(146, 146, 145);
     display: inline-block;
     padding: 20px;
     border-radius: 10px;
@@ -47,11 +47,16 @@
 .potatoHolder {
     position: absolute;
     overflow-y: auto;
-    display: inline-block;
+    display: flex;
+    overflow-x: scroll;
+    justify-content: space-around;
     border-radius: 10px;
+    flex-wrap: wrap;
     height: 310px;
     right: 20px;
-    top: 25px;
+    top: 10px;
+    width: 50vw;
+    max-width: 650px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 
@@ -65,22 +70,24 @@
 }
 
 .profile-cover {
-    background-color: #DC5F00;
+    background-color: #344751;
     width: 90vw;
     max-width: 800px;
     min-width: 500px;
     height: 270px;
     margin: auto;
     border-radius: 10px;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(246, 108, 10);
+    box-shadow: 0px 8px 10px -3px rgba(0, 0, 0, 0.3);
+    
+
 }
 
 .likedText {
-    font-size: 15px;
-    color: rgb(0, 0, 0);
-    position: absolute;
-    right: 130px;
-    top: -10px;
+    font-size: 25px;
+    color: rgb(71, 71, 71);
+    display: inline;
+    width: 100%;
     z-index: 2;
 }
 
@@ -146,7 +153,7 @@
     }
 
     .profile-cover {
-        background-color: #DC5F00;
+        background-color: #344751;
         width: 60vw;
         max-width: 800px;
         min-width: 370px;

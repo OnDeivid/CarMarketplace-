@@ -10,7 +10,7 @@ import './Home.css';
 function Home() {
 
     console.log('home')
-    
+
     // const [onShowFilter, setShowFilter] = () => setShowFilter(prev => !prev);
     const [carsData, setCarsData] = useState(null);
     useEffect(() => {
@@ -23,7 +23,7 @@ function Home() {
     return (
         <div className="wrapper">
             <div className='content'>
-                <Filter />
+                <Filter setCarsData={setCarsData} />
                 <div className="catalog-section">
                     <div style={{ height: '3px', backgroundColor: '#DC5F00' }}></div>
 

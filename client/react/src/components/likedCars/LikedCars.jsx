@@ -8,7 +8,7 @@ import './LikedCars.css'
 
 export default function LikedCars({ showLiked }) {
     console.log('likedCars')
-    
+
     const [likedCars, setLikedCars] = useState([])
     useEffect(() => {
         GET(`likedCars`)

@@ -2,14 +2,14 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+    overflow-y: auto;
+    background-color: #212324;
+
 }
 
 .content {
-    background-color:rgb(228, 228, 225);
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: auto;
-
+    background-color: #212324;
+    position: relative;
 }
 
 .content h1 {
@@ -24,11 +24,12 @@
     width: 60px;
     font-size: 2rem;
     color: rgb(232, 232, 232);
-    position: absolute;
-    bottom: 70px;
+    position: fixed;
+    /* position: absolute; */
+    bottom: 20px;
     right: 40px;
     text-align: center;
-    transition:0.3s;
+    transition: 0.3s;
 }
 
 .menu-filter:hover {
@@ -36,6 +37,3 @@
     color: rgb(32, 32, 32);
     transition: 0.3s;
 }
-
-
-

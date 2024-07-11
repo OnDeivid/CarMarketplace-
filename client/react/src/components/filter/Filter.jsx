@@ -16,8 +16,14 @@ export default function Filter({ setCarsData }) {
 
     async function onFilter(e) {
         e.preventDefault()
-        const data = dataNormalization(formValue)
-        await POST('filterBy', data)
+        const normalizedValue = dataNormalization(formValue)
+        try {
+            const filteredData = await POST('filterBy', normalizedValue)
+            setCarsData(filteredData)
+        } catch (error) {
+            console.log(error)
+        }
+
 
     }
     return (
@@ -41,7 +47,7 @@ export default function Filter({ setCarsData }) {
                                 id='brand'
                                 name='brand' />
                         </div>
-                        
+
                         {/*Model*/}
                         <div className='filter-item'>
                             <label className='labelOption' htmlFor='model'>Model:</label>
@@ -96,6 +102,7 @@ export default function Filter({ setCarsData }) {
                             <label className='labelOption' htmlFor='fuel'>Fuel Type:</label>
 
                             <select id='fuel' className='filterInput' name='fuel' onChange={onChangeValue} defaultValue={formValue.fuel}>
+                                <option value=''>All</option>
                                 <option value='diesel'>Diesel</option>
                                 <option value='petrol'>Petrol</option>
                                 <option value='electric'>Electric</option>

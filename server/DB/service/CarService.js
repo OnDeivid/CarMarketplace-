@@ -35,9 +35,9 @@ exports.filterBy = async (filter) => {
     if (filter.fuel != '') {
         fieldData.fuel = filter.fuel
     }
- 
-    console.log(fieldData)
-    const data = await CarModel.find(fieldData)
-    console.log(data)
+
+    return await CarModel.find(fieldData)
+
+
 
 }

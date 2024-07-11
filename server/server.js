@@ -153,10 +153,10 @@ app.post('/filterBy', async (req, res) => {
     const filter = req.body;
 
     try {
-        const filtaredData = await filterBy(filter)
-        return filtaredData
+        const filteredData = await filterBy(filter)
+        res.status(200).json(filteredData);
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({ error: error });
     }
 
 })

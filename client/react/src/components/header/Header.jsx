@@ -30,12 +30,13 @@ export default function Header() {
                 <LikedCarsCatalog />
 
             </div>
+
             <nav>
                 <ul className={sideBar ? 'nav-menu active' : 'nav-menu'}>
                     {SideBarData.filter(item =>
-
-                        (!auth && (item.accessibilityType == 'guest' || item.accessibilityType == 'all')) || (auth && (item.accessibilityType == 'user' || item.accessibilityType == 'all')))
-
+                        (!auth && (item.accessibilityType == 'guest' || item.accessibilityType == 'all'))
+                        ||
+                        (auth && (item.accessibilityType == 'user' || item.accessibilityType == 'all')))
                         .map((item, index) => (
 
                             <li key={index} className={item.title}>
@@ -44,7 +45,7 @@ export default function Header() {
                                     <span>{item.title}</span>
                                 </Link>
                             </li>
-                            
+
                         ))}
                 </ul>
             </nav >

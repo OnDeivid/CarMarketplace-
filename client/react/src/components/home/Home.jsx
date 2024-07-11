@@ -11,8 +11,8 @@ function Home() {
 
     console.log('home')
 
-    // const [onShowFilter, setShowFilter] = () => setShowFilter(prev => !prev);
     const [carsData, setCarsData] = useState(null);
+
     useEffect(() => {
         GET('home')
             .then(response => setCarsData(response))
@@ -23,7 +23,9 @@ function Home() {
     return (
         <div className="wrapper">
             <div className='content'>
+
                 <Filter setCarsData={setCarsData} />
+               
                 <div className="catalog-section">
                     <div style={{ height: '3px', backgroundColor: '#DC5F00' }}></div>
 

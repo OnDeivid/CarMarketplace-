@@ -1,8 +1,8 @@
 .profile-page {
-    height: 100vh;
+    height:100%;
+    overflow-y: auto;
     margin-top: -25px;
-    overflow: auto;
-    text-align: center;
+    text-align: center;background-color: rgb(220, 216, 216);
 }
 
 .profile-header {

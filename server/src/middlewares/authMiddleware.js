@@ -1,4 +1,4 @@
-const jwt = require('../lib/jwt'); // Assuming jwt has a verify function
+const jwt = require('../utils/jwt')// Assuming jwt has a verify function
 
 exports.auth = async (req, res, next) => {
     const token = req.cookies['token']

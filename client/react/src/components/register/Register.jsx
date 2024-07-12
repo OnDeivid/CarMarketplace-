@@ -24,7 +24,7 @@ export default function Register() {
         if (validation.flag) { return }
 
         try {
-            await POST('register', formValue)
+            await POST('/users/register', formValue)
             navigate('/login')
 
         } catch (err) {

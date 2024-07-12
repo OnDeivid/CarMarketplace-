@@ -39,7 +39,7 @@ export default function Create({ userData }) {
         console.log(data)
         try {
 
-            await POST('create', data)
+            await POST('/data/create', data)
         } catch (err) {
             return err
         }

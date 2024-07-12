@@ -27,7 +27,7 @@ export default function Login() {
         if (validation.flag) { return }
 
         try {
-            const userData = await POST('login', formValue)
+            const userData = await POST('/users/login', formValue)
 
             setAuth(userData)
             navigate('/')

@@ -10,8 +10,9 @@ export default function LikedCars({ showLiked }) {
     console.log('likedCars')
 
     const [likedCars, setLikedCars] = useState([])
+
     useEffect(() => {
-        GET(`likedCars`)
+        GET(`/data/likedCars`)
             .then(carIds => setLikedCars(carIds))
             .catch(error => console.error('Error fetching liked cars:', error));
     }, []);
@@ -20,7 +21,7 @@ export default function LikedCars({ showLiked }) {
             <div className={!showLiked ? 'liked-holder' : 'liked-holder-fixed'}>
                 <div className='potato'>
                     <div className="liked-options">
-                        <LikedCarsCard carInfo={likedCars} />
+                        <LikedCarsCard carInfo={likedCars} setLikedCars={setLikedCars} />
                     </div>
                 </div>
             </div>

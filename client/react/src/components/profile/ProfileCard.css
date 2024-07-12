@@ -4,6 +4,7 @@
     border-radius: 10px;
     margin-bottom: 255px;
     margin-top: 10px;
+    position: relative;
 }
 
 .profile-container {
@@ -30,4 +31,33 @@
 
 .carInfo {
     text-align: center;
+}
+
+.removeLike {
+    top: 10px;
+    position: absolute;
+    height: 30px;
+    width: 35px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    right: 10px;
+    border: none;
+    transition: 0.2s;
+    outline: none;
+
+}
+
+.removeLike:hover {
+    position: absolute;
+    height: 30px;
+    width: 35px;
+    color: rgb(188, 0, 0);
+    right: 10px;
+    transition: 0.2s;
+    border: none;
+}
+
+.removeLike:focus {
+    outline: none;
 }

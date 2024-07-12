@@ -14,7 +14,7 @@ function Home() {
     const [carsData, setCarsData] = useState(null);
 
     useEffect(() => {
-        GET('home')
+        GET('/data/home')
             .then(response => setCarsData(response))
             .catch(error => {
                 console.error('Error fetching data:', error);

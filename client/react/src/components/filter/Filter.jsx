@@ -18,7 +18,7 @@ export default function Filter({ setCarsData }) {
         e.preventDefault()
         const normalizedValue = dataNormalization(formValue)
         try {
-            const filteredData = await POST('filterBy', normalizedValue)
+            const filteredData = await POST('/data/filterBy', normalizedValue)
             setCarsData(filteredData)
         } catch (error) {
             console.log(error)

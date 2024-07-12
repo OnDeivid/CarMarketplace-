@@ -13,7 +13,6 @@ export default function LikedCarsCatalog() {
     
     return (
         <div>
-
             <Link to='#' onClick={() => setShowLiked(prev => !prev)} className={showLiked ? 'menu-loved-active' : 'menu-loved'}>
                 <CiHeart />
             </Link>

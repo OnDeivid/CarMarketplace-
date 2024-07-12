@@ -1,20 +1,33 @@
 import ProfileCards from './ProfileCard';
 import { useEffect, useState } from 'react';
 
-import { GET } from '../../requester';
+import { GET, POST } from '../../requester';
 
 import './Profile.css'
 
 export default function Profile() {
-    
-    console.log('Profile')
 
     const [myCars, setMyCars] = useState([])
     const [likedCars, setLikedCars] = useState([])
 
+    console.log('profile')
+    async function removeLikedCar(e) {
+        try {
+            const carId = e.target.id
+            await POST(`/data/like/${carId}`);
+            const newLikedCars = await GET(`/data/likedCars`)
+            setLikedCars(newLikedCars)
+
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+    }
+
+
+
     useEffect(() => {
-        GET('mycars').then(res => setMyCars(res))
-        GET('likedCars').then(res => setLikedCars(res))
+        GET('/data/mycars').then(res => setMyCars(res))
+        GET('/data/likedCars').then(res => setLikedCars(res))
     }, [])
 
     return (
@@ -40,10 +53,10 @@ export default function Profile() {
 
                 {/* LIKED CARS!!! */}
                 <div className='potatoHolder'>
-                <p className='likedText'>Liked Cars</p>
+                    <p className='likedText'>Liked Cars</p>
                     {likedCars.map(item => {
                         return (
-                            <ProfileCards key={item._id} item={item} />
+                            <ProfileCards key={item._id} item={item} removeLikedCar={removeLikedCar} />
                         )
                     })}
                 </div>

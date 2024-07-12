@@ -6,7 +6,6 @@ import { MdHideSource } from "react-icons/md";
 import { SideBarData } from '../../CONST';
 import { authContext } from '../../context/authContext';
 
-// import LikedCars from '../likedCars/LikedCars';
 import * as FaIcons from "react-icons/fa";
 import LikedCarsCatalog from './LikedCarsCatalog';
 
@@ -15,7 +14,6 @@ import './Header.css'
 export default function Header() {
 
     const [sideBar, setSideBar] = useState(false)
-    // const [showLiked, setShowLiked] = useState(false)
     const { auth } = useContext(authContext)
     console.log('menu')
 

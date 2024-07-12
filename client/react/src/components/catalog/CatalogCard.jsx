@@ -14,7 +14,8 @@ export default function CatalogCard({ carsData, likedCars, setLikedCars, auth })
     function onLike(carId) {
 
         if (!auth) { navigate('/login') }
-        POST(`like/${carId}`)
+        
+        POST(`/data/like/${carId}`)
             .then(newLikedCars => setLikedCars(newLikedCars))
             .catch(error => console.error('Error liking car:', error));
     }

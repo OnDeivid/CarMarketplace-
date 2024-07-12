@@ -1,27 +1,41 @@
-const bcrypt = require('bcrypt')
-const UserModel = require("../models/UserModel");
-const jwt = require('../../lib/jwt')
+const CarModel = require('../models/CarModel')
+const UserModel = require('../models/UserModel');
 
-exports.register = async (data) => await UserModel.create(data)
+exports.create = async (data) => await CarModel.create(data);
 
-exports.login = async (data) => {
-    const { email, password } = data
+exports.getAll = async () => await CarModel.find({});
 
-    const userData = await UserModel.findOne({ email: email })
-    if (!userData) {
-        throw new Error('email or password is not correct!')
+exports.getMyCars = async (userId) => await CarModel.find({ userId })
+
+
+exports.filterBy = async (filter) => {
+
+    const fieldData = {}
+    if (filter.year != '') {
+        fieldData.year = filter.year
     }
 
-    const isPasswordCorrect = await bcrypt.compare(password, userData.password)
-
-    if (!isPasswordCorrect) {
-        throw new Error('email or password is not correct!')
+    if (filter.brand != '') {
+        fieldData.brand = filter.brand.trim()
     }
-    const payload = { _id: userData._id, email: userData.email, username: userData.username }
 
-    const token = await jwt.sign(payload, 'secret')
+    if (filter.model != '') {
+        fieldData.model = filter.model.trim()
+    }
 
-    return { token, payload }
+    if (filter.price != '') {
+        fieldData.price = filter.price
+    }
+
+    if (filter.mileage != '') {
+        fieldData.mileage = filter.mileage
+    }
+
+    if (filter.fuel != '') {
+        fieldData.fuel = filter.fuel
+    }
+
+    return await CarModel.find(fieldData)
 
 }
 

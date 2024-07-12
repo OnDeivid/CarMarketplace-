@@ -1,19 +1,18 @@
-import React from 'react'
+import extractDate from '../utils/extractDate'
 
 import './LikedCarsCard.css'
 
 export default function LikedCarsCard({ carInfo }) {
     console.log('likedCarsCARD')
-
     return (
         <div className='likedPosts'>
             {carInfo.length != 0 ?
                 carInfo.map(car => {
                     return (
                         <div className="likedHolder" key={car._id}>
-                            <button className='removeLike'>X</button>
-                            <h3 style={{ color: 'white' }}>Audi RS6</h3>
-                            <p style={{ color: 'white', marginTop: '-20px', marginLeft: '10px', fontSize: '10px' }}>uploaded on: 11.25.2023</p>
+                            {/* <button onClick={removeHeart} id={car._id} className='removeLike'>X</button> */}
+                            <h3 style={{ color: 'white' }}>{car.model}</h3>
+                            <p style={{ color: 'white', marginTop: '-20px', marginLeft: '10px', fontSize: '10px' }}>{extractDate(car.createdAt)}</p>
                             <img className='carLikedImg' src='https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' />
                             <div className='likedCarInfo'>
                                 <p>year: {car.year}</p>

@@ -1,4 +1,4 @@
-const baseURl = 'http://localhost:3000/'
+const baseURl = 'http://localhost:3000'
 
 async function requester(method, url, data) {
     const option = {

@@ -16,7 +16,7 @@ function CatalogPage({ carsData }) {
     useEffect(() => {
         if (!auth) { return }
         if (likedCars.length === 0) {
-            GET(`getHeart`)
+            GET(`/data/getHeart`)
                 .then(carIds => setLikedCars(carIds))
                 .catch(error => console.error('Error fetching liked cars:', error));
         }

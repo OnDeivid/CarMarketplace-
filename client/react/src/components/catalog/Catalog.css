@@ -37,11 +37,10 @@
     position: absolute;
     top: 1px;
     transition: 0.2s;
-
 }
 
 .catalog-item {
-    width: fit-content;
+    max-width:300px ;
     margin: 10px;
     border-radius: 5px;
     transition: 1s;

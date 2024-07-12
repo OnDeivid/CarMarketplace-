@@ -27,7 +27,7 @@ function App() {
   function onLogout() {
 
     setAuth('')
-    GET('logout')
+    GET('/users/logout')
     sessionStorage.removeItem('auth')
 
   }

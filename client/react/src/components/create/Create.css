@@ -4,9 +4,11 @@
     height: 20px;
     text-align: center;
     justify-content: center;
-    border-radius: 10px;
-    background-color: rgb(59, 56, 56);
+    border-radius: 1px;
+    background-color: #aa998c;
     border: none;
+    font-weight: bold;
+
 }
 
 h1 {
@@ -15,13 +17,16 @@ h1 {
 }
 
 .create-item-desc label {
+
     margin-top: -30px;
     margin-left: auto;
+
 }
 
 .create-item-desc {
     margin-top: 15px;
     display: flex;
+    ;
 }
 
 
@@ -30,35 +35,55 @@ h1 {
     position: fixed;
     height: 120px;
     width: 400px;
+    color: rgb(255, 255, 255);
+    background-color: #aa998c;
+
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.6);
+
 }
 
 .holder {
+
     justify-content: center;
-    background-color: rgb(157, 148, 148);
+    background-color: #344751;
     width: 700px;
     position: relative;
     margin: auto;
     border-radius: 10px;
     height: 600px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.6);
     margin-top: 70px;
 
 }
 
 .currency {
+    font-weight: bold;
     margin: 3px;
     width: 55px;
     float: right;
+    color: rgb(0, 0, 0);
+    background-color: #aa998c;
+
 }
 
 .currency:focus {
-    outline: inset 2px rgb(134, 164, 255);
-
+    outline: solid 2px rgb(255, 255, 255);
+    color: black;
 }
 
 .createInput:focus {
-    outline: inset 2px rgb(134, 164, 255);
+    outline: solid 2px rgb(255, 255, 255);
+}
 
+
+.createInput {
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
+
+}
+
+.holder ::placeholder {
+    color: rgb(92, 92, 92);
 }
 
 .create-form {
@@ -70,6 +95,7 @@ h1 {
 
 .create-item {
     margin-top: 15px;
+    
     display: flex;
     flex-direction: column;
 }
@@ -93,7 +119,6 @@ h1 {
     background-color: rgb(7, 127, 59);
     transition: 0.5s;
     border: none;
-
 }
 
 .create-item-btn button:hover {

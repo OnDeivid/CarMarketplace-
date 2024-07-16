@@ -44,7 +44,7 @@ export default function Create({ userData }) {
             return err
         }
     }
- 
+
     return (
         <div className='container-create'>
             <h1>asdasd</h1>
@@ -109,26 +109,17 @@ export default function Create({ userData }) {
                     </div>
 
                     <div className="create-item-desc">  {/*description*/}
-                        <label htmlFor="description">description:</label>
+                        <label htmlFor="description">Description:</label>
                         <textarea className='createInput-desc' type="text" id="description" name="description" value={formValue.description} onChange={onChangeValue} />
                     </div>
-                    <p style={{ color: 'red', fontSize: 13, textAlign: 'center', marginTop: '140px' }} className="error-message">{formError?.description}</p>
+                    <p style={{ color: 'red', fontSize: 13, textAlign: 'center', marginTop: '180px' }} className="error-message">{formError?.description}</p>
 
                     <div className="create-item-images">   {/*images*/}
-                        <label htmlFor="images">image 1:</label>
-                        <input className='createInput' type="text" id="images" name="images1" />
 
-                        <label htmlFor="images">image 2:</label>
-                        <input className='createInput' type="text" id="images" name="images2" />
+                        <input className='createInput' autocomplete="off" type="text" id="images" name="images1" placeholder='image-1' />
+                        <input className='createInput' autocomplete="off" type="text" id="images" name="images2" placeholder='image-2' />
+                        <input className='createInput' autocomplete="off" type="text" id="images" name="images3" placeholder='image-3' />
 
-                        <label htmlFor="images">image 3:</label>
-                        <input className='createInput' type="text" id="images" name="images3" />
-
-                        <label htmlFor="images">image 4:</label>
-                        <input className='createInput' type="text" id="images" name="images4" />
-
-                        <label htmlFor="images">image 5:</label>
-                        <input className='createInput' type="text" id="images" name="images5" />
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.phoneNumber}</p>
                     </div>
 

@@ -10,14 +10,12 @@ export default function Profile() {
     const [myCars, setMyCars] = useState([])
     const [likedCars, setLikedCars] = useState([])
 
-    console.log('profile')
     async function removeLikedCar(e) {
         try {
             const carId = e.target.id
             await POST(`/data/like/${carId}`);
             const newLikedCars = await GET(`/data/likedCars`)
             setLikedCars(newLikedCars)
-
         } catch (error) {
             console.error('An error occurred:', error);
         }

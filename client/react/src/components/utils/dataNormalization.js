@@ -8,6 +8,5 @@ export const dataNormalization = (initialValue) => {
         brand: initialValue.brand.toUpperCase(),
         price: initialValue.price.replace(/\s/g, ''),
     };
-    console.log(normalizedValue)
     return normalizedValue;
 };

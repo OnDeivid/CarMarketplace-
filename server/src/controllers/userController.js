@@ -21,7 +21,7 @@ const registerLimitRequest = rateLimit({
 router.post('/login', loginLimitRequest, async (req, res) => {
     try {
         const userData = req.body
-        console.log(userData)
+
         const token = await userService.login(userData)
 
         res.cookie('token', token.token)

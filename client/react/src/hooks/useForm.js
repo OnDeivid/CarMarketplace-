@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 export default function useForm(initialValue) {
 
     const [formValue, setFormValue] = useState(initialValue)
@@ -7,5 +6,6 @@ export default function useForm(initialValue) {
     function onChangeValue(event) {
         setFormValue(prev => ({ ...prev, [event.target.name]: event.target.value }))
     }
-    return { formValue, onChangeValue }
+
+    return { formValue, onChangeValue, setFormValue }
 }

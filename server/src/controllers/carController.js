@@ -13,7 +13,6 @@ router.get('/home', auth, async (req, res) => {
     }
 })
 
-
 router.post('/create', async (req, res) => {
     try {
         const carData = req.body
@@ -100,19 +99,44 @@ router.get('/likedCars', auth, async (req, res) => {
     }
 });
 
-
-
 router.delete('/deleteCar/:id', async (req, res) => {
     const carId = req.params.id
-    
+
     try {
         await carService.deleteCar(carId)
         res.status(200).json({ message: 'Car successfully deleted' });
     } catch (error) {
         console.log(error)
-        return res.status(500).json(JSON.stringify(error));
+        return res.status(500).json({ message: 'Error Deleting resource', error });
     }
-
 })
+
+
+router.get('/getById/:id', async (req, res) => {
+    try {
+        const carId = req.params.id;
+        const carInfo = await carService.findCarById(carId)
+
+        res.status(200).json(carInfo);
+    }
+    catch (error) {
+        return res.status(500).json({ message: 'Error Finding resource', error });
+    }
+})
+
+
+router.put('/updateCarData/:id', async (req, res) => {
+    const carId = req.params.id;
+    const updatedData = req.body;
+    try {
+        console.log(updatedData);
+        await carService.findAndUpdateCar(carId, updatedData);
+        res.status(200).json({ message: 'Successfully updated' });
+    } catch (error) {
+        console.log(error); // Fixed variable name here
+        res.status(500).json({ message: 'Error Updating resource', error: error.message });
+    }
+});
+
 
 module.exports = router;

@@ -75,3 +75,14 @@ exports.getLikedCars = async (email) => {
 exports.deleteCar = async (carId) => {
     await CarModel.findByIdAndDelete(carId)
 }
+
+exports.findCarById = async (carId) => {
+    const carInfo = await CarModel.findById(carId)
+    return carInfo
+}
+
+exports.findAndUpdateCar = async (carId, updateData) => {
+    const updatedCar = await CarModel.findByIdAndUpdate(carId, updateData, { new: true, runValidators: true });
+    console.log(updatedCar)
+    return updatedCar
+}

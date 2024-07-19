@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import ProfileCards from './ProfileCard';
-
 import { DEL, GET, POST } from '../../requester';
 
 import './Profile.css'
 
 export default function Profile() {
+
+    const navigate = useNavigate()
 
     const [myCars, setMyCars] = useState([])
     const [likedCars, setLikedCars] = useState([])
@@ -20,6 +22,9 @@ export default function Profile() {
         } catch (error) {
             console.error('An error occurred:', error);
         }
+    }
+    async function editCar(carId) {
+        navigate(`/edit/${carId}`)
     }
 
     async function deleteMyCar(carId) {
@@ -38,7 +43,6 @@ export default function Profile() {
             alert('delete canceled')
         }
     }
-
 
 
     useEffect(() => {
@@ -83,7 +87,7 @@ export default function Profile() {
             <div className='myCars-Post'>
                 {myCars.map(item => {
                     return (
-                        <ProfileCards key={item._id} item={item} deleteMyCar={deleteMyCar} />
+                        <ProfileCards key={item._id} item={item} editCar={editCar} deleteMyCar={deleteMyCar} />
                     )
                 })}
             </div>

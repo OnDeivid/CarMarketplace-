@@ -1,14 +1,25 @@
+.container-create
+{
+    overflow-y: scroll;
+    height: 100%;
+}
 .holder {
+    position: relative;
     overflow-y: auto;
     background-color: #344751;
     width: 700px;
     position: relative;
     margin: auto;
-    top: 10vh;
+    top: -80px;
     border-radius: 10px;
     height: 600px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.6);
     margin-top: 70px;
+}
+
+.requestError {
+    color: red;
+    text-align: center;
 }
 
 .createInput {
@@ -41,7 +52,7 @@ h1 {
 }
 
 .createInput-desc {
-    position: fixed;
+    position: absolute;
     height: 120px;
     width: 400px;
     color: rgb(255, 255, 255);
@@ -162,8 +173,9 @@ h1 {
 
     /* Base Styles */
     /* Base Styles */
-    body {
-        overflow-y: auto;
+    .container-create
+    {
+       overflow-y: auto;
     }
 
     .holder {
@@ -205,15 +217,8 @@ h1 {
         display: none;
     }
 
-    .create-item-desc {
-        margin-top: 43px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .createInput-desc {
-        position: relative;
+        position: absolute;
         height: auto;
         width: 100%;
         max-width: 400px;

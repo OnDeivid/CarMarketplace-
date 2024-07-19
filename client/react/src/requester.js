@@ -27,7 +27,7 @@ async function requester(method, url, data) {
         return response.json()
 
     } catch (err) {
-        throw new Error(err)
+        throw new Error(err.message)
     }
 }
 

@@ -15,6 +15,7 @@ import Logout from './components/logout/Logout';
 import Create from './components/create/Create';
 import PrivateRoute from './privateRoute/PrivateRouter';
 import PublicRoute from './publicRoute/PublicRoute';
+import Edit from './components/edit/Edit';
 
 function App() {
   console.log('APP')
@@ -40,6 +41,7 @@ function App() {
           <Routes>
             <Route path='/profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
             <Route path='/create' element={<PrivateRoute><Create userData={auth} /></PrivateRoute>} />
+            <Route path='/edit/:id' element={<PrivateRoute><Edit userData={auth} /></PrivateRoute>} />
             <Route path='/logout' element={<Logout onLogout={onLogout} />} />
             <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
             <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />

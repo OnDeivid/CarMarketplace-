@@ -30,6 +30,7 @@ router.post('/create', async (req, res) => {
 
 router.get('/myCars', auth, async (req, res) => {
     const userId = res.locals.userId;
+
     try {
         if (!userId) {
             return res.status(400).json({ error: 'no Cars yet!' });
@@ -57,6 +58,7 @@ router.post('/filterBy', async (req, res) => {
 
 router.get('/getHeart', auth, async (req, res) => {
     const userId = res.locals.email;
+
     try {
         if (!userId) {
             return res.status(400).json({ error: 'User Email not found' });
@@ -73,6 +75,7 @@ router.get('/getHeart', auth, async (req, res) => {
 router.post('/like/:id', auth, async (req, res) => {
     const carId = req.params.id
     const userId = res.locals.email
+
     try {
         const updatedLikedCars = await carService.likeCar(carId, userId)
         res.status(200).json(updatedLikedCars);
@@ -84,6 +87,7 @@ router.post('/like/:id', auth, async (req, res) => {
 
 router.get('/likedCars', auth, async (req, res) => {
     const userId = res.locals.email;
+
     try {
         if (!userId) {
             return res.status(400).json({ error: 'User Email not found' });
@@ -96,5 +100,19 @@ router.get('/likedCars', auth, async (req, res) => {
     }
 });
 
+
+
+router.delete('/deleteCar/:id', async (req, res) => {
+    const carId = req.params.id
+    
+    try {
+        await carService.deleteCar(carId)
+        res.status(200).json({ message: 'Car successfully deleted' });
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json(JSON.stringify(error));
+    }
+
+})
 
 module.exports = router;

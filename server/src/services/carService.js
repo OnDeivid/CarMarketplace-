@@ -70,5 +70,8 @@ exports.getHearts = async (email) => {
 exports.getLikedCars = async (email) => {
     const likedCars = await UserModel.findOne({ email }).populate('likedCars')
     return likedCars.likedCars
+}
 
+exports.deleteCar = async (carId) => {
+    await CarModel.findByIdAndDelete(carId)
 }

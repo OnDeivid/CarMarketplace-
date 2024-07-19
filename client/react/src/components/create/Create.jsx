@@ -116,9 +116,9 @@ export default function Create({ userData }) {
 
                     <div className="create-item-images">   {/*images*/}
 
-                        <input className='createInput' autocomplete="off" type="text" id="images" name="images1" placeholder='image-1' />
-                        <input className='createInput' autocomplete="off" type="text" id="images" name="images2" placeholder='image-2' />
-                        <input className='createInput' autocomplete="off" type="text" id="images" name="images3" placeholder='image-3' />
+                        <input className='createInput' autoComplete="off" type="text" id="images" name="images1" placeholder='image-1' />
+                        <input className='createInput' autoComplete="off" type="text" id="images" name="images2" placeholder='image-2' />
+                        <input className='createInput' autoComplete="off" type="text" id="images" name="images3" placeholder='image-3' />
 
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.phoneNumber}</p>
                     </div>

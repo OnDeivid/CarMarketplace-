@@ -1,7 +1,8 @@
-import ProfileCards from './ProfileCard';
 import { useEffect, useState } from 'react';
 
-import { GET, POST } from '../../requester';
+import ProfileCards from './ProfileCard';
+
+import { DEL, GET, POST } from '../../requester';
 
 import './Profile.css'
 
@@ -10,14 +11,31 @@ export default function Profile() {
     const [myCars, setMyCars] = useState([])
     const [likedCars, setLikedCars] = useState([])
 
-    async function removeLikedCar(e) {
+    async function removeLikedCar(carId) {
         try {
-            const carId = e.target.id
             await POST(`/data/like/${carId}`);
-            const newLikedCars = await GET(`/data/likedCars`)
+
+            const newLikedCars = likedCars.filter(car => car._id !== carId)
             setLikedCars(newLikedCars)
         } catch (error) {
             console.error('An error occurred:', error);
+        }
+    }
+
+    async function deleteMyCar(carId) {
+        const result = confirm('Are you certain you want to delete this post? Once deleted, it cannot be recovered.')
+
+        if (result) {
+            try {
+                await DEL(`/data/deleteCar/${carId}`);
+
+                const newMyCars = myCars.filter(car => car._id !== carId);
+                setMyCars(newMyCars)
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        } else {
+            alert('delete canceled')
         }
     }
 
@@ -65,7 +83,7 @@ export default function Profile() {
             <div className='myCars-Post'>
                 {myCars.map(item => {
                     return (
-                        <ProfileCards key={item._id} item={item} />
+                        <ProfileCards key={item._id} item={item} deleteMyCar={deleteMyCar} />
                     )
                 })}
             </div>

@@ -6,7 +6,7 @@ import { DEL, GET, POST } from '../../requester';
 
 import './Profile.css'
 
-export default function Profile() {
+export default function Profile({ userData }) {
 
     const navigate = useNavigate()
 
@@ -64,8 +64,8 @@ export default function Profile() {
                 <div className="profile-details">
                     <div className='infoHolder'>
                         <h2>User Details</h2>
-                        <p>Name: John Doe</p>
-                        <p>Email: johndoe@example.com</p>
+                        <p>Name: {userData.username}</p>
+                        <p>Email: {userData.email}</p>
                         <p>Location: New York</p>
                     </div>
                 </div>

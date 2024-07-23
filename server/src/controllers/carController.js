@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { auth } = require('../middlewares/authMiddleware');
+const { auth, isCreator } = require('../middlewares/authMiddleware');
 
 const carService = require('../services/carService');
 
@@ -99,7 +99,7 @@ router.get('/likedCars', auth, async (req, res) => {
     }
 });
 
-router.delete('/deleteCar/:id', async (req, res) => {
+router.delete('/deleteCar/:id', auth, isCreator, async (req, res) => {
     const carId = req.params.id
 
     try {
@@ -112,7 +112,7 @@ router.delete('/deleteCar/:id', async (req, res) => {
 })
 
 
-router.get('/getById/:id', async (req, res) => {
+router.get('/getById/:id',auth, isCreator, async (req, res) => {
     try {
         const carId = req.params.id;
         const carInfo = await carService.findCarById(carId)
@@ -125,7 +125,7 @@ router.get('/getById/:id', async (req, res) => {
 })
 
 
-router.put('/updateCarData/:id', async (req, res) => {
+router.put('/updateCarData/:id', auth, isCreator, async (req, res) => {
     const carId = req.params.id;
     const updatedData = req.body;
     try {

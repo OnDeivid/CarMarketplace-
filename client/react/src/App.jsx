@@ -39,7 +39,7 @@ function App() {
         <Router>
           <Header />
           <Routes>
-            <Route path='/profile' element={<PrivateRoute><Profile  userData={auth.data.payload}/></PrivateRoute>} />
+            <Route path='/profile' element={<PrivateRoute><Profile userData={auth} /></PrivateRoute>} />
             <Route path='/create' element={<PrivateRoute><Create userData={auth} /></PrivateRoute>} />
             <Route path='/edit/:id' element={<PrivateRoute><Edit userData={auth} /></PrivateRoute>} />
             <Route path='/logout' element={<Logout onLogout={onLogout} />} />

@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const rateLimit = require('express-rate-limit');
 const userService = require('../services/userService');
-const { auth } = require('../middlewares/authMiddleware');
 
 //login limit requests
 const loginLimitRequest = rateLimit({

@@ -12,6 +12,7 @@ export default function Profile({ userData }) {
 
     const [myCars, setMyCars] = useState([])
     const [likedCars, setLikedCars] = useState([])
+    const { payload } = userData.data
 
     async function removeLikedCar(carId) {
         try {
@@ -64,8 +65,8 @@ export default function Profile({ userData }) {
                 <div className="profile-details">
                     <div className='infoHolder'>
                         <h2>User Details</h2>
-                        <p>Name: {userData.username}</p>
-                        <p>Email: {userData.email}</p>
+                        <p>Name: {payload.username}</p>
+                        <p>Email: {payload.email}</p>
                         <p>Location: New York</p>
                     </div>
                 </div>

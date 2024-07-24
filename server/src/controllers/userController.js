@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const rateLimit = require('express-rate-limit');
 const userService = require('../services/userService');
+const { validationRegister } = require('../middlewares/formValidationMiddleware');
 
 //login limit requests
 const loginLimitRequest = rateLimit({
@@ -30,20 +31,20 @@ router.post('/login', loginLimitRequest, async (req, res) => {
     }
 })
 
-router.post('/register', registerLimitRequest, async (req, res) => {
+router.post('/register', validationRegister, registerLimitRequest, async (req, res) => {
     try {
         const userData = req.body
-
         await userService.register(userData)
 
         res.status(201).send({ message: 'User registered successfully' });
     } catch (error) {
-        const errors = Object.values(error.errors).map(err => err.message);
-        return res.status(400).json({ error: errors });
+        const errorMessages = error.errors ? Object.values(error.errors).map(err => err.message) : [error.message || 'An unknown error occurred'];
+        const errMessage = errorMessages.length > 0 ? errorMessages.join(', ') : 'An unknown error occurred';
+
+        return res.status(400).json({ error: errMessage });
 
     }
 })
-
 
 router.get('/logout', async (req, res) => {
     try {

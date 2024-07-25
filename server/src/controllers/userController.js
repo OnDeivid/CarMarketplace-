@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const rateLimit = require('express-rate-limit');
 const userService = require('../services/userService');
-const { validationRegister } = require('../middlewares/formValidationMiddleware');
+const { validationRegister, validationLogin } = require('../middlewares/formValidationMiddleware');
+
 
 //login limit requests
 const loginLimitRequest = rateLimit({
@@ -17,8 +18,7 @@ const registerLimitRequest = rateLimit({
 })
 
 
-
-router.post('/login', loginLimitRequest, async (req, res) => {
+router.post('/login', validationLogin, loginLimitRequest, async (req, res) => {
     try {
         const userData = req.body
 
@@ -54,8 +54,6 @@ router.get('/logout', async (req, res) => {
         res.status(500).json({ error: 'Logout failed' });
     }
 })
-
-
 
 
 

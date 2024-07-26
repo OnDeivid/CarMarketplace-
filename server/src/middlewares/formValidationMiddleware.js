@@ -29,7 +29,7 @@ const validationLogin = (req, res, next) => {
     next()
 }
 
-const validationCreate = (req, res, next) => {
+const validationCreateAndEdit = (req, res, next) => {
     const { year, fuel, price, mileage, model, brand, phoneNumber, description } = req.body;
     const formData = { year, fuel, price, mileage, model, brand, phoneNumber, description };
 
@@ -54,5 +54,5 @@ const validationCreate = (req, res, next) => {
 module.exports = {
     validationRegister,
     validationLogin,
-    validationCreate
+    validationCreateAndEdit
 }

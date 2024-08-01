@@ -10,10 +10,9 @@ export default function LikedCarsCard({ carInfo }) {
                 carInfo.map(car => {
                     return (
                         <div className="likedHolder" key={car._id}>
-                            {/* <button onClick={removeHeart} id={car._id} className='removeLike'>X</button> */}
                             <h3 style={{ color: 'white' }}>{car.model}</h3>
                             <p style={{ color: 'white', marginTop: '-20px', marginLeft: '10px', fontSize: '10px' }}>{extractDate(car.createdAt)}</p>
-                            <img className='carLikedImg' src='https://www.audiusa.com/content/dam/nemo/us/inside_audi/Innovation/1920x1080_MY24-RS6-Front-Parked.jpg' />
+                            <img className='carLikedImg' src={car.image} />
                             <div className='likedCarInfo'>
                                 <p>year: {car.year}</p>
                                 <p>Fuel: {car.fuel}</p>

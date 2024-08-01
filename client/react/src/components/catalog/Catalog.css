@@ -12,6 +12,7 @@
     background-color: #212324;
 }
 
+
 .likeCar {
 
     position: absolute;
@@ -40,7 +41,7 @@
 }
 
 .catalog-item {
-    max-width:300px ;
+    max-width: 300px;
     margin: 10px;
     border-radius: 5px;
     transition: 1s;
@@ -67,6 +68,11 @@
 
 .shortInfo {
     text-align: center;
+    font-size: 15px;
+}
+
+.imgHolder {
+    height: 270px;
 }
 
 
@@ -78,7 +84,7 @@
 }
 
 .catalog-item h3 {
-    margin-top: 0;
+
     color: rgb(255, 255, 255);
 }
 
@@ -89,6 +95,7 @@
 
 .catalog-item img {
     width: 300px;
+
     border-radius: 5px;
     margin-bottom: 10px;
     margin-top: 7px;
@@ -134,6 +141,10 @@
         margin-top: 0;
         color: rgb(255, 255, 255);
         font-size: 14px;
+    }
+
+    .imgHolder {
+        display: inline;
     }
 
     .description {

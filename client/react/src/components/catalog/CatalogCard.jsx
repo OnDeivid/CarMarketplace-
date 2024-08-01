@@ -14,7 +14,7 @@ export default function CatalogCard({ carsData, likedCars, setLikedCars, auth })
     function onLike(carId) {
 
         if (!auth) { navigate('/login') }
-        
+
         POST(`/data/like/${carId}`)
             .then(newLikedCars => setLikedCars(newLikedCars))
             .catch(error => console.error('Error liking car:', error));
@@ -31,7 +31,9 @@ export default function CatalogCard({ carsData, likedCars, setLikedCars, auth })
             <div onClick={() => onDetails(carsData._id)}>
 
                 <p className='datePost' style={{ color: "rgb(200, 200, 200)", fontSize: 9.5 }}>{extractDate(carsData.createdAt)}</p>
-                <img src='https://img.freepik.com/free-photo/view-three-dimensional-car_23-2150998581.jpg' alt={carsData.name} />
+                <div className="imgHolder">
+                    <img src={carsData.image} alt={carsData.name} />
+                </div>
 
                 <h3>{carsData.brand}/{carsData.model}</h3>
 
@@ -40,7 +42,7 @@ export default function CatalogCard({ carsData, likedCars, setLikedCars, auth })
                 <div style={{ height: 0.5, width: '100%', backgroundColor: 'white' }}></div>
 
                 <h5 className='description'>
-                    {carsData.description.length > 130 ? carsData.description.slice(0, 130) + "..." : carsData.description}
+                    {carsData.description.length > 60 ? carsData.description.slice(0, 60) + "..." : carsData.description}
                 </h5>
 
                 <h2 className='price'>{carsData.price} {carsData.currency}</h2>

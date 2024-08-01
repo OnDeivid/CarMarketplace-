@@ -10,7 +10,9 @@ import './Create.css';
 import { dataNormalization } from '../utils/dataNormalization';
 
 export default function Create({ userData, editMode, carData }) {
+
     const userId = userData.data.payload._id
+    const phoneNumber = userData.data.payload.phone
     const { id } = useParams()
 
     const { formValue, onChangeValue, setFormValue } = useForm({
@@ -21,9 +23,10 @@ export default function Create({ userData, editMode, carData }) {
         brand: '',
         price: '',
         description: '',
-        phoneNumber: '',
+        phoneNumber: phoneNumber,
         currency: 'USD',
         userId: userId,
+        image: '',
     })
     const [formError, setFormError] = useState('')
     const [reqError, setReqError] = useState('');
@@ -132,7 +135,6 @@ export default function Create({ userData, editMode, carData }) {
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.mileage}</p>
                     </div>
 
-
                     <div className="create-item">   {/*model*/}
                         <label htmlFor="model">Model:</label>
                         <input
@@ -161,10 +163,10 @@ export default function Create({ userData, editMode, carData }) {
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.brand}</p>
                     </div>
 
-
                     <div className="create-item">   {/*phoneNumber*/}
                         <label htmlFor="phoneNumber">Phone Number:</label>
                         <input
+                            disabled
                             className='createInput'
                             type="text"
                             id="phoneNumber"
@@ -190,11 +192,10 @@ export default function Create({ userData, editMode, carData }) {
 
                     <div className="create-item-images">   {/*images*/}
 
-                        <input className='createInput' autoComplete="off" type="text" id="images" name="images1" placeholder='image-1' />
-                        <input className='createInput' autoComplete="off" type="text" id="images" name="images2" placeholder='image-2' />
-                        <input className='createInput' autoComplete="off" type="text" id="images" name="images3" placeholder='image-3' />
+                        <input onChange={onChangeValue} className='createInput' value={formValue.image} autoComplete="off" type="text" id="image" name="image" placeholder='image' />
+                        
+                        <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.image}</p>
 
-                        <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.phoneNumber}</p>
                     </div>
 
 

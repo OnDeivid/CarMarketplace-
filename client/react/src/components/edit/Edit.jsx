@@ -9,7 +9,7 @@ export default function Edit({ userData }) {
 
     const [carData, setCarData] = useState('');
     const { id } = useParams();
-    
+
     useEffect(() => {
         GET(`/data/getById/${id}`)
             .then(carInfo => setCarData({
@@ -23,6 +23,7 @@ export default function Edit({ userData }) {
                 description: carInfo.description,
                 year: carInfo.year,
                 userId: carInfo.userId,
+                image: carInfo.image
             }))
             .catch(err => console.log(err))
     }, [])

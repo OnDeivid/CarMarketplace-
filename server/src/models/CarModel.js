@@ -11,14 +11,16 @@ const carSchema = new mongoose.Schema({
     currency: { type: String, required: true },
     fuel: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    image: { type: String, required: true }
 
 })
 
 const CarModel = mongoose.model('Cars', carSchema);
 
-carSchema.pre('save', function(next) {
+carSchema.pre('save', function (next) {
     this.model = this.model.toUpperCase();
     next();
 });
+
 module.exports = CarModel;

@@ -5,10 +5,11 @@
     margin-top: 10px;
     position: relative;
 }
-.carInfo p{
-    margin-top: 2px;
 
+.carInfo p {
+    margin-top: 2px;
 }
+
 .profile-container {
     background-color: #273a45;
     border: 1px solid rgb(59, 59, 58);
@@ -106,4 +107,11 @@
     color: #e98233;
     transition: 0.3s;
 
+}
+
+
+.carImage {
+    object-fit: cover;
+    width: 280px;
+    height: 100px;
 }

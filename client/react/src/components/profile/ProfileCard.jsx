@@ -25,7 +25,7 @@ export default function ProfileCards({ item, removeLikedCar, deleteMyCar, editMy
                 }
 
                 <h3>{item.model}</h3>
-                <img src={item.imageUrl} />
+                <img className="carImage" src={item.image} />
                 <div className='carInfo'>
                     <h5 style={{ marginTop: 50 }}>YEAR : {item.year} /  FUEL : {item.fuel}</h5>
                     <h5 style={{ marginTop: -20 }}>MILEAGE : {item.mileage}</h5>

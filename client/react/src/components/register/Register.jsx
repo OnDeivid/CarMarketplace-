@@ -11,13 +11,13 @@ import './Register.css'
 export default function Register() {
 
     const navigate = useNavigate()
-    const { formValue, onChangeValue } = useForm({ email: '', username: '', number: '', password: '', rePassword: '' })
+    const { formValue, onChangeValue } = useForm({ email: '', username: '', number: '', password: '', rePassword: '', profileIcon: '' })
     const [formError, setFormError] = useState('')
     const [requestError, setRequestError] = useState('')
 
     async function onRegister(e) {
         e.preventDefault()
-        
+
         const validation = useFormValidation(formValue)
         setFormError(validation)
 
@@ -47,6 +47,15 @@ export default function Register() {
                         placeholder="Email"
                         required />
                     <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.email}</p>
+
+                    <input
+                        onChange={onChangeValue}
+                        type="profileIcon"
+                        value={formValue.profileIcon}
+                        name="profileIcon"
+                        placeholder="http://.....png"
+                    />
+
 
                     <input
                         onChange={onChangeValue}
@@ -84,11 +93,6 @@ export default function Register() {
                         required />
                     <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.rePassword}</p>
 
-
-                    {/* <select>
-                        <option>bussines</option>
-                        <option>no-bussines</option>
-                    </select> */}
                     <button type="submit">Register</button>
                 </form>
                 <h5><Link to='/login'>LOGIN</Link></h5>

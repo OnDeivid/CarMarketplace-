@@ -31,6 +31,7 @@ form {
     width: 80%;
 }
 
+.register-container input[type="profileIcon"],
 .register-container input[type="username"],
 .register-container input[type="number"],
 .register-container input[type="email"],

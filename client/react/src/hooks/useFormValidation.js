@@ -20,6 +20,7 @@ export default function useFormValidation(initialValue) {
     validateField('number', 'Number is required');
 
 
+
     //          !!!create From!!!
     validateField('year', 'year is required');
     validateField('mileage', 'mileage is required');
@@ -30,6 +31,8 @@ export default function useFormValidation(initialValue) {
     validateField('description', 'description is required');
     validateField('phoneNumber', 'phoneNumber is required');
     validateField('currency', 'currency is required');
+    validateField('image', 'image is required');
+    
 
     if (initialValue.password !== initialValue.rePassword && initialValue.rePassword?.trim()) {
         error.rePassword = 'Password mismatch';

@@ -18,7 +18,8 @@ exports.login = async (data) => {
     if (!isPasswordCorrect) {
         throw new Error('email or password is not correct!')
     }
-    const payload = { _id: userData._id, email: userData.email, username: userData.username }
+    console.log(userData)
+    const payload = { _id: userData._id, email: userData.email, username: userData.username, phone: userData.number, icon: userData.profileIcon }
 
     const token = await jwt.sign(payload, 'secret')
 

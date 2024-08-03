@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { POST, PUT } from '../../requester';
+import { dataNormalization } from '../utils/dataNormalization';
 
 import useForm from '../../hooks/useForm';
 import useFormValidation from '../../hooks/useFormValidation';
 
 import './Create.css';
-import { dataNormalization } from '../utils/dataNormalization';
 
 export default function Create({ userData, editMode, carData }) {
 
@@ -15,6 +15,7 @@ export default function Create({ userData, editMode, carData }) {
     const phoneNumber = userData.data.payload.phone
     const { id } = useParams()
 
+    const navigate = useNavigate()
     const { formValue, onChangeValue, setFormValue } = useForm({
         year: '',
         mileage: '',
@@ -42,6 +43,7 @@ export default function Create({ userData, editMode, carData }) {
 
         try {
             await POST('/data/create', data)
+            navigate('/profile')
         } catch (err) {
             return err
         }
@@ -67,7 +69,6 @@ export default function Create({ userData, editMode, carData }) {
         }
 
     }
-    // /updateCarData/:id
 
     useEffect(() => {
         if (editMode && carData) {
@@ -193,15 +194,15 @@ export default function Create({ userData, editMode, carData }) {
                     <div className="create-item-images">   {/*images*/}
 
                         <input onChange={onChangeValue} className='createInput' value={formValue.image} autoComplete="off" type="text" id="image" name="image" placeholder='image' />
-                        
+
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.image}</p>
 
                     </div>
 
-
                     <div className="create-item-btn">
                         <button type="submit">Submit</button>
                     </div>
+
                 </form>
             </div>
         </div>

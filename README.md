@@ -1,6 +1,6 @@
 
 # CarMarketplace
-CarMarketplace is a full-stack car marketplace application built with React and Express
+CarMarketplace is a full-stack car marketplace application built with React and Express, designed to simplify the process of buying and selling second-hand cars. Users can easily browse, search, and post listings for vehicles, making the experience of finding a new ride hassle-free.
 
 ## Features
 * Browse and search for cars

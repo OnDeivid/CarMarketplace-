@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 
 const routes = require('./routes')
-const connectDB = require('./src/config/connectDB');
+const connectDB = require('./config/connectDB');
 
 const app = express()
 

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const userController = require('./src/controllers/userController')
-const carController = require('./src/controllers/carController')
+const userController = require('./controllers/userController')
+const carController = require('./controllers/carController')
 
 
 router.use('/users', userController);

@@ -14,8 +14,8 @@ export default function Create({ userData, editMode, carData }) {
     const userId = userData.data.payload._id
     const phoneNumber = userData.data.payload.phone
     const { id } = useParams()
-
     const navigate = useNavigate()
+
     const { formValue, onChangeValue, setFormValue } = useForm({
         year: '',
         mileage: '',
@@ -63,6 +63,8 @@ export default function Create({ userData, editMode, carData }) {
         if (userIdData != carData.userId) { setReqError('You are not authorized to edit this item.'); return }
         try {
             await PUT(`/data/updateCarData/${id}`, data)
+            navigate('/profile')
+
         } catch (error) {
             console.log(error.message)
             setReqError(error.message)

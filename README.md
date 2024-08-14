@@ -10,6 +10,14 @@ CarMarketplace is a full-stack car marketplace application built with React and 
 * Saves all content(users , cars) on a database(MongoDB)
 * **Like a car**: Save your favorite car listings to easily access them later.
 
+## Architecture 
+
+**Frontend**
+   - **React**: Used for building the user interface with a modern, responsive design
+
+**Backend**
+   - **Express**: Provides a RESTful API for managing car listings and user data.
+
 ## Running the Application
 
 **Starting the Server**:

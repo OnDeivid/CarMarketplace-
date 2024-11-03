@@ -54,7 +54,7 @@ export default function Profile({ userData }) {
     }, [])
 
     return (
-        <div className="profile-page">
+        <div className="wrapper">
             <div className='profile-cover'>
                 <div className="profile-header">
                     <img src={payload.icon ? payload.icon : defaultIcon} alt="Profile" className="profile-img" />

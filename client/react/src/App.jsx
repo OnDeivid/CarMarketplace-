@@ -34,7 +34,6 @@ function App() {
   }
 
   return (
-    <div style={{ marginTop: '50px', height: '100vh', width: '100vw', backgroundColor: '#f1f0f0' }}>
       <authContext.Provider value={ProvidedData}>
         <Router>
           <Header />
@@ -49,7 +48,6 @@ function App() {
           </Routes>
         </Router>
       </authContext.Provider>
-    </div >
   );
 }
 

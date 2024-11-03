@@ -1,8 +1,9 @@
 .profile-page {
-    height:100%;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
     overflow-y: auto;
-    margin-top: -25px;
-    text-align: center;background-color: rgb(220, 216, 216);
+    background-color: #212324;
 }
 
 .profile-header {
@@ -51,7 +52,7 @@
     overflow-y: auto;
     display: flex;
     overflow-x: scroll;
-    justify-content: space-around;
+    justify-content: center;
     border-radius: 10px;
     flex-wrap: wrap;
     height: 320px;
@@ -63,7 +64,7 @@
 }
 
 .myCars-Post {
-    
+
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -89,6 +90,7 @@
     color: rgb(71, 71, 71);
     display: inline;
     width: 100%;
+    text-align: center;
     z-index: 2;
 }
 
@@ -102,6 +104,8 @@
     padding: 40px;
     max-width: 70rem;
     border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     margin-top: 10px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.7);
 }
@@ -142,15 +146,12 @@
     }
 
     .potatoHolder {
-        position: absolute;
-        overflow-y: auto;
         background-color: rgb(146, 146, 146);
-        display: inline-block;
         border-radius: 10px;
         height: 310px;
-        width: 310px;
+        width:fit-content;
         top: 300px;
-        left: 30px;
+        left:8dvw;
     }
 
     .profile-cover {

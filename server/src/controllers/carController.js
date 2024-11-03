@@ -17,7 +17,7 @@ router.get('/home', auth, async (req, res) => {
 router.post('/create', validationCreateAndEdit, async (req, res) => {
     try {
         const carData = req.body
-
+        console.log(carData)
         await carService.create(carData)
         res.status(201).send({ create: 'Car created successfully' });
 

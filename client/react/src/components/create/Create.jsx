@@ -81,7 +81,7 @@ export default function Create({ userData, editMode, carData }) {
     }, [editMode, carData, userId]);
 
     return (
-        <div className='container-create'>
+        <div className='wrapper'>
             <div style={{ height: 65 }}></div>
             <div className='holder'>
                 {reqError && <h4 className='requestError'>{reqError}</h4>}
@@ -190,15 +190,14 @@ export default function Create({ userData, editMode, carData }) {
                             value={formValue.description}
                             onChange={onChangeValue}
                         />
+                        <p className="error-message">{formError?.description}</p>
                     </div>
-                    <p style={{ color: 'red', fontSize: 13, textAlign: 'center', marginTop: '180px' }} className="error-message">{formError?.description}</p>
 
                     <div className="create-item-images">   {/*images*/}
-
+                        <label htmlFor="description">image:</label>
                         <input onChange={onChangeValue} className='createInput' value={formValue.image} autoComplete="off" type="text" id="image" name="image" placeholder='image' />
 
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.image}</p>
-
                     </div>
 
                     <div className="create-item-btn">

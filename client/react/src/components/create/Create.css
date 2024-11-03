@@ -1,391 +1,123 @@
-.container-create
-{
-    overflow-y: scroll;
-    height: 100%;
-}
-.holder {
-    position: relative;
-    overflow-y: auto;
-    background-color: #344751;
-    width: 700px;
-    position: relative;
-    margin: auto;
-    top: -80px;
-    border-radius: 10px;
-    height: 600px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.6);
-    margin-top: 70px;
-}
-
-.requestError {
-    color: red;
-    text-align: center;
-}
-
-.createInput {
-    width: 150px;
-    font-size: 15px;
-    height: 25px;
-    text-align: center;
-    justify-content: center;
-    border-radius: 4px;
-    border: none;
-    font-weight: bold;
-    background-color: #383431;
-    outline: solid 2px #4a4a4a;
-}
-
-h1 {
-    text-align: center;
-    display: none;
-
-}
-
-.create-item-desc label {
-    margin-top: -28px;
-    margin-left: auto;
-}
-
-.create-item-desc {
-    margin-top: 43px;
-    display: flex;
-}
-
-.createInput-desc {
-    position: absolute;
-    height: 120px;
-    width: 400px;
-    color: rgb(255, 255, 255);
-    background-color: #383431;
-    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.6);
-    outline: solid 2px #4a4a4a;
-}
-
-
-
-.currency {
-    position: absolute;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-left: 156px;
-    border-radius: 5px;
-    width: 55px;
-    height: 25px;
-    float: right;
-    color: rgb(31, 30, 30);
-    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.6);
-    background-color: #383431;
-    outline: solid 2px #4a4a4a;
-    color: #878989;
-}
-
-.currency:focus {
-    outline: solid 2px #aa998c;
-    color: black;
-}
-
-.createInput:focus {
-    outline: solid 2px #aa998c;
-}
-
-.createInput {
-    color: rgb(216, 216, 216);
-    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
-
-}
-
-.holder ::placeholder {
-    color: #878989;
-
-}
-
 .create-form {
+    background-color: #273a45;
     margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    border-radius: 2dvh;
+    width: 40dvw;
+    height: 85dvh;
+    overflow: scroll;
+
+    -webkit-box-shadow: 0px 0px 57px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 27px 0px rgba(0, 0, 0, 0.75);
 }
 
 .create-item {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
+    justify-items: center;
+    height: fit-content;
+    margin: 1dvh;
+    font-size: 3dvh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(227, 227, 227);
+
 }
 
 .create-item label {
-    margin-bottom: 5px;
+    padding: 4px;
+    display: block;
+
     text-align: center;
+}
+
+.createInput {
+    font-size: 2.3dvh;
+    padding: 1dvh;
+    text-align: center;
+    background-color: #383431;
+}
+
+.currency {
+    font-size: 2.3dvh;
+    padding: 1dvh;
+    text-align: center;
+}
+
+
+.create-item-desc {
+    justify-items: center;
+}
+
+.createInput-desc {
+    height: 10dvh;
+    min-width: 400px;
+    height: 150px;
+    background-color: #383431;
+}
+
+.create-item-desc label {
+    display: block;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3dvh;
+    color: rgb(227, 227, 227);
+
+    padding-top: 3dvh;
+}
+
+
+.create-item-desc p {
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.create-item-images {
+    justify-items: center;
+}
+
+.create-item-images label {
+    display: block;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3dvh;
+    color: rgb(227, 227, 227);
+
+    padding-top: 3dvh;
+}
+
+.create-item-images p {
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .create-item-btn {
     display: flex;
-    justify-content: end;
-    grid-column: span 3;
+    justify-content: center;
 }
 
-.create-item-btn button {
-    position: absolute;
-    bottom: 10px;
-    right: 30px;
-    font-size: 14px;
-    background-color: rgb(7, 127, 59);
-    transition: 0.5s;
-    border: none;
+.create-item-btn {
+    display: flex;
+    justify-content: center;
+    /* Horizontal centering */
+    align-items: center;
+    /* Vertical centering */
 }
 
-.create-item-btn button:hover {
-    font-size: 14px;
-    background-color: rgb(34, 187, 65);
-    transition: 0.5s;
-    border: none;
-    outline: none;
-}
-
-.create-item-images {
-    width: fit-content;
-    position: absolute;
-    bottom: 50px;
-    margin-left: -50px;
-}
-
-.create-item-images input {
-    width: 100px;
-    float: left;
-    height: 50px;
-    font-size: 20px;
-    border-radius: 3px;
-}
-
-.create-item-images input:focus {
-    position: absolute;
-    width: 300px;
-    margin-top: -70px;
-    left: 0px;
-    outline: solid 2px #4a4a4a;
-}
-
-.create-item-images label {
-    position: absolute;
-}
-
-
-@media (max-width: 668px) {
-
-    /* Base Styles */
-    /* Base Styles */
-    .container-create
-    {
-       overflow-y: auto;
-    }
-
-    .holder {
-        background-color: #344751;
-        width: 100%;
-        max-width: 700px;
-        position: relative;
-        margin: 0 auto;
-        border-radius: 10px;
-        height: 100%;
-        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.6);
-        margin-top: 70px;
-        box-sizing: border-box;
-        overflow: auto;
-        /* Enable scrolling */
-    }
-
-    .createInput {
-        width: 100%;
-        max-width: 150px;
-        font-size: 15px;
-        height: 25px;
-        text-align: center;
-        border-radius: 4px;
-        border: none;
-        font-weight: bold;
-        background-color: #383431;
-        outline: solid 2px #4a4a4a;
-        color: rgb(216, 216, 216);
-        box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.7);
-    }
-
-    .createInput::placeholder {
-        color: #878989;
-    }
-
-    h1 {
-        text-align: center;
-        display: none;
-    }
-
-    .createInput-desc {
-        position: absolute;
-        height: auto;
-        width: 100%;
-        max-width: 400px;
-        color: rgb(255, 255, 255);
-        background-color: #383431;
-        box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.6);
-        outline: solid 2px #4a4a4a;
-        box-sizing: border-box;
-    }
-
-    .currency {
-        font-weight: bold;
-        border-radius: 5px;
-        width: 55px;
-        height: 25px;
-        color: #878989;
-        box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.6);
-        background-color: #383431;
-        outline: solid 2px #4a4a4a;
-    }
-
-    .currency:focus {
-        outline: solid 2px #aa998c;
-        color: black;
-    }
-
-    .createInput:focus {
-        outline: solid 2px #aa998c;
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        left: -2.2dvw;
     }
 
     .create-form {
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        width: 100dvw;
     }
 
-    .create-item {
-        margin-top: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* Center items horizontally */
+    .createInput-desc {
+        min-width: 90dvw;
+        background-color: #383431;
     }
-
-    .create-item label {
-        margin-bottom: 5px;
-        text-align: center;
-    }
-
-    .create-item-btn {
-        display: flex;
-        justify-content: center;
-    }
-
-    .create-item-btn button {
-        font-size: 14px;
-        background-color: rgb(7, 127, 59);
-        transition: 0.5s;
-        border: none;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-    }
-
-    .create-item-btn button:hover {
-        background-color: rgb(34, 187, 65);
-        transition: 0.5s;
-        outline: none;
-    }
-
-    .create-item-images {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .create-item-images input {
-        width: 100px;
-        height: 50px;
-        font-size: 20px;
-        border-radius: 3px;
-        box-sizing: border-box;
-    }
-
-    .create-item-images input:focus {
-        width: 100%;
-        /* Full width on focus */
-        height: auto;
-        font-size: 16px;
-        outline: solid 2px #4a4a4a;
-    }
-
-    .create-item-images label {
-        display: none;
-        /* Hide labels in this example */
-    }
-
-    /* Responsive Styles for Mobile Devices */
-
-    @media (max-width: 668px) {
-        .holder {
-            margin-top: 20px;
-            min-height: auto;
-            /* Allow the height to adjust to content */
-        }
-
-        .createInput {
-            width: 100%;
-            max-width: none;
-            margin: 5px 0;
-            height: 30px;
-        }
-
-        .currency {
-            width: 100px;
-            margin-top: 70px;
-            margin-right: -45px;
-        }
-
-        .create-item-desc {
-            margin-top: 20px;
-        }
-
-        .createInput-desc {
-            width: 100%;
-            max-width: none;
-            min-height: 200px;
-        }
-
-        .create-item {
-            align-items: center;
-        }
-
-        .create-item-btn button {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            left: 0px;
-
-        }
-
-        .create-item-images {
-            margin-top: 0;
-        }
-
-        .create-item-images input {
-            width: 100%;
-            height: auto;
-            font-size: 16px;
-            margin-left: 25px;
-        }
-
-        .create-item-images input:focus {
-            width: 90%;
-            height: 30px;
-            left: 10px;
-            top: 10px;
-        }
-
-        .create-item-desc label {
-            margin: auto;
-        }
-    }
-
-
 }

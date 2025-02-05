@@ -1,5 +1,4 @@
 export const dataNormalization = (initialValue) => {
-    console.log(initialValue)
     const normalizedValue = {
         ...initialValue,
         year: typeof initialValue.year === 'string' ? initialValue.year.replace(/\s/g, '') : initialValue.year,

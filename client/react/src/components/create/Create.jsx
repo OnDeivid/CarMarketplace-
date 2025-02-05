@@ -36,6 +36,7 @@ export default function Create({ userData, editMode, carData }) {
         e.preventDefault()
 
         const validation = useFormValidation(formValue)
+        console.log(formValue)
         setFormError(validation.error)
 
         if (validation.flag) { return }
@@ -176,7 +177,7 @@ export default function Create({ userData, editMode, carData }) {
                             name="phoneNumber"
                             value={formValue.phoneNumber}
                             onChange={onChangeValue}
-                            placeholder='089 123 321' />
+                            placeholder='897172023' />
 
                         <p style={{ color: 'red', textAlign: 'center', fontSize: 12, }} className="error-message">{formError?.phoneNumber}</p>
                     </div>

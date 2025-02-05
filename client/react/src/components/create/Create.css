@@ -31,6 +31,7 @@
 .createInput {
     font-size: 2.3dvh;
     padding: 1dvh;
+    align-self: center;
     text-align: center;
     background-color: #383431;
 }
@@ -48,7 +49,7 @@
 
 .createInput-desc {
     height: 10dvh;
-    min-width: 400px;
+    min-width: 300px;
     height: 150px;
     background-color: #383431;
 }

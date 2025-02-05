@@ -32,7 +32,7 @@ export default function CatalogCard({ carsData, likedCars, setLikedCars, auth })
 
                 <p className='datePost' style={{ color: "rgb(200, 200, 200)", fontSize: 9.5 }}>{extractDate(carsData.createdAt)}</p>
                 <div className="imgHolder">
-                    <img src={carsData.image} alt={carsData.name} />
+                    <img className="catalogImageHome" src={carsData.image} alt={carsData.name} />
                 </div>
 
                 <h3>{carsData.brand}/{carsData.model}</h3>

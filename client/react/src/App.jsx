@@ -26,11 +26,9 @@ function App() {
   };
 
   function onLogout() {
-
     setAuth('')
     GET('/users/logout')
     sessionStorage.removeItem('auth')
-
   }
 
   return (

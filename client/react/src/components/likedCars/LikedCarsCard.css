@@ -1,4 +1,5 @@
 .likedPosts {
+    justify-items: center;
     width: 90%;
     height: 100%;
     border-radius: 60px;
@@ -13,10 +14,12 @@
 }
 
 .carLikedImg {
+    justify-self: center;
     border-radius: 7px;
     max-width: 300px;
     display: block;
-    margin-left: 1%;
+    width: 80%;
+    margin-left: -4%;
 }
 
 h2 {
@@ -32,6 +35,8 @@ h3 {
 
 
 .likedHolder {
+    position: relative;
+    width: 100%;
     transition: background-color 0.5s;
     margin-bottom: 50px;
 }
@@ -62,10 +67,16 @@ h3 {
     margin-top: -10px;
     background-color: white;
     width: 100%;
-    margin-left: 5px;
     height: 1px;
 }
 
+.descriptionLikedCarsShort {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    margin-top: -15px;
+    padding-bottom: 10%;
+}
 
 /*------------>! Mobile !<------------- */
 @media (max-width: 668px) {
@@ -81,16 +92,17 @@ h3 {
     }
 
     .likedHolder img {
-        min-width: 170px;
+        max-width: 160px;
         width: 172px;
-        margin-left: 0px;
+    }
+
+    .priceLikedCars {
+        width: 115%;
     }
 
     .likedHolder {
-        float: left;
         background-color: rgb(93, 93, 93);
-        width: 100%;
-        height: 300px;
+        width: 95%;
         padding: 10px;
         border-radius: 10px;
         margin-top: 10px;
@@ -98,7 +110,7 @@ h3 {
 
     .likedPosts {
         width: 200px;
-        height: 300px;
+        height: 400px;
         justify-content: space-around;
         border-radius: 60px;
         background-color: rgb(34, 34, 34);
@@ -106,6 +118,15 @@ h3 {
 
     h2 {
         margin-top: -20px;
+    }
+
+    /* { width: '113%', fontSize: 10, textAlign: 'center', backgroundColor: 'red', marginTop: -5 } */
+    .descriptionLikedCarsShort {
+        width: 115%;
+        text-align: center;
+        margin-top: -30px;
+        padding-bottom: 10%;
+
     }
 
     .likedCarInfo {
@@ -116,8 +137,8 @@ h3 {
     .line {
         margin-top: -10px;
         background-color: rgb(255, 255, 255);
-        width: 100%;
-        margin-left: -10px;
+        width: 120%;
+        margin-left: -3.4%;
         height: 1px;
     }
 

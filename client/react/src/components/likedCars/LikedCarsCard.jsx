@@ -18,8 +18,8 @@ export default function LikedCarsCard({ carInfo }) {
                                 <p>Fuel: {car.fuel}</p>
                                 <p>Mileage: {car.mileage}km</p>
                             </div>
-                            <p style={{ width: 300, fontSize: 10, textAlign: 'center', color: '#D3D3D3', marginTop: -5 }}>{car.description}</p>
-                            <h2>{car.price}{car.currency}</h2>
+                            <p className='descriptionLikedCarsShort'>{car.description}</p>
+                            <h2 className='priceLikedCars'>{car.price}{car.currency}</h2>
                             <div className='line'></div>
                         </div>
                     )

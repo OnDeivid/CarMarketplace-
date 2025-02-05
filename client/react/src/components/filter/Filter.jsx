@@ -62,7 +62,7 @@ export default function Filter({ setCarsData }) {
                             </div>
                         ))}
 
-                        {/* Fuel */}
+
                         <div className='filter-item'>
                             <label className='labelOption' htmlFor='fuel'>Fuel Type:</label>
 

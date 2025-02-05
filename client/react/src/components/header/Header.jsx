@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { lazy, useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import { MdHideSource } from "react-icons/md";
@@ -7,8 +7,8 @@ import { SideBarData } from '../../CONST';
 import { authContext } from '../../context/authContext';
 
 import * as FaIcons from "react-icons/fa";
-import LikedCarsCatalog from './LikedCarsCatalog';
-
+// import LikedCarsCatalog from './LikedCarsCatalog';
+const LikedCarsCatalog = lazy(() => import('./LikedCarsCatalog'));
 import './Header.css'
 
 export default function Header() {

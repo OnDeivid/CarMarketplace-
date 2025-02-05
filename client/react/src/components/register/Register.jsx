@@ -45,7 +45,7 @@ export default function Register() {
                         value={formValue.email}
                         name="email"
                         placeholder="Email"
-                        required />
+                         />
                     <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.email}</p>
 
                     <input
@@ -63,7 +63,7 @@ export default function Register() {
                         value={formValue.username}
                         name="username"
                         placeholder="Username"
-                        required />
+                         />
                     <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.username}</p>
 
                     <input
@@ -71,8 +71,8 @@ export default function Register() {
                         type="number"
                         value={formValue.number}
                         name="number"
-                        placeholder="Phone Number"
-                        required />
+                        placeholder="897171023"
+                         />
                     <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.number}</p>
 
                     <input
@@ -81,7 +81,7 @@ export default function Register() {
                         value={formValue.password}
                         name="password"
                         placeholder="Password"
-                        required />
+                         />
                     <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.password}</p>
 
                     <input
@@ -90,7 +90,7 @@ export default function Register() {
                         value={formValue.rePassword}
                         name="rePassword"
                         placeholder="rePassword"
-                        required />
+                         />
                     <p style={{ color: 'red', textAlign: 'center', fontSize: 10, marginTop: '-10px' }}>{formError?.error?.rePassword}</p>
 
                     <button type="submit">Register</button>

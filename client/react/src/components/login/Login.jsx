@@ -16,7 +16,7 @@ export default function Login() {
     const [formError, setFormError] = useState('')
     const [requestError, setRequestError] = useState('')
 
-    const navigate = useNavigate() 
+    const navigate = useNavigate()
 
     async function onLogin(e) {
         e.preventDefault()
@@ -27,9 +27,9 @@ export default function Login() {
         if (validation.flag) { return }
 
         try {
-            const userData = await POST('/users/login', formValue)
+            const { data } = await POST('/users/login', formValue)
 
-            setAuth(userData)
+            setAuth(data)
             navigate('/')
 
         } catch (err) {

@@ -14,7 +14,7 @@ export default function Profile({ userData }) {
 
     const [myCars, setMyCars] = useState([])
     const [likedCars, setLikedCars] = useState([])
-    const { payload } = userData.data
+    const { payload } = userData
 
     async function removeLikedCar(carId) {
         try {

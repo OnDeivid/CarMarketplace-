@@ -3,7 +3,6 @@ import extractDate from '../utils/extractDate'
 import './LikedCarsCard.css'
 
 export default function LikedCarsCard({ carInfo }) {
-    console.log('likedCarsCARD')
     return (
         <div className='likedPosts'>
             {carInfo.length != 0 ?

@@ -11,10 +11,10 @@ import './Create.css';
 
 export default function Create({ userData, editMode, carData }) {
 
-    const userId = userData.payload._id
     const phoneNumber = userData.payload.phone
-    const { id } = useParams()
+    const userId = userData.payload._id
     const navigate = useNavigate()
+    const { id } = useParams()
 
     const { formValue, onChangeValue, setFormValue } = useForm({
         year: '',
@@ -36,7 +36,6 @@ export default function Create({ userData, editMode, carData }) {
         e.preventDefault()
 
         const validation = useFormValidation(formValue)
-        console.log(formValue)
         setFormError(validation.error)
 
         if (validation.flag) { return }

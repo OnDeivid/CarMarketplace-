@@ -8,11 +8,8 @@ import CatalogCard from './CatalogCard';
 import './Catalog.css'
 
 function CatalogPage({ carsData }) {
-    console.log('catalog')
-    
     const { auth } = useContext(authContext)
     const [likedCars, setLikedCars] = useState([])
-        console.log(auth)
     useEffect(() => {
         if (!auth) { return }
         if (likedCars.length === 0) {

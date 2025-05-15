@@ -11,9 +11,9 @@ import './Register.css'
 export default function Register() {
 
     const navigate = useNavigate()
-    const { formValue, onChangeValue } = useForm({ email: '', username: '', number: '', password: '', rePassword: '', profileIcon: '' })
     const [formError, setFormError] = useState('')
     const [requestError, setRequestError] = useState('')
+    const { formValue, onChangeValue } = useForm({ email: '', username: '', number: '', password: '', rePassword: '', profileIcon: '' })
 
     async function onRegister(e) {
         e.preventDefault()

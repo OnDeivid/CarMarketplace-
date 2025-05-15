@@ -8,9 +8,6 @@ import CatalogPage from '../catalog/Catalog';
 import './Home.css';
 
 function Home() {
-
-    console.log('home')
-
     const [carsData, setCarsData] = useState(null);
 
     useEffect(() => {

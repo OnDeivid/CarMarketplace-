@@ -15,7 +15,6 @@ export default function Header() {
 
     const [sideBar, setSideBar] = useState(false)
     const { auth } = useContext(authContext)
-    console.log('menu')
 
     const showSideBar = () => setSideBar(prev => !prev)
     return (
